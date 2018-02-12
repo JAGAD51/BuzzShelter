@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".Controllers.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,12 +22,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Controllers.LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".WelcomeActivity">
+            android:parentActivityName=".Controllers.WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tonyzhang.buzzshelter.WelcomeActivity" />
+                android:value="com.example.tonyzhang.buzzshelter.Controllers.WelcomeActivity" />
         </activity>
     </application>
 
