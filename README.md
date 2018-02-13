@@ -6,6 +6,7 @@ API To Be Used: API 19
 Android Device Testing On: Nexus 5
 
 Done Done Criteria For User Story (Team):
+- All acceptance scenarios are checked and met
 - Review and tested by all team members
 - Merge code into main branch
 
