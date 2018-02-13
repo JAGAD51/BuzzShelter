@@ -1,4 +1,4 @@
-package com.example.tonyzhang.buzzshelter.Controllers;
+package com.buzzshelter.Controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

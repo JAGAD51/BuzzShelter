@@ -1,4 +1,4 @@
-package com.example.tonyzhang.buzzshelter;
+package com.buzzshelter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.tonyzhang.buzzshelter", appContext.getPackageName());
+        assertEquals("com.buzzshelter", appContext.getPackageName());
     }
 }

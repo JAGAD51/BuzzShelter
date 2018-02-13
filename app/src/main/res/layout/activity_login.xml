@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tonyzhang.buzzshelter.Controllers.LoginActivity">
+    tools:context="com.example.tonyzhang.buzzshelter.com.buzzshelter.Controllers.LoginActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -63,7 +63,7 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/go_to_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

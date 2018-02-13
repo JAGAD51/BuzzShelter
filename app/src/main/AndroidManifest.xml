@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controllers.WelcomeActivity">
+        <activity android:name="com.buzzshelter.Controllers.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,15 +22,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controllers.LoginActivity"
+            android:name="com.buzzshelter.Controllers.LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".Controllers.WelcomeActivity"
+            android:parentActivityName="com.buzzshelter.Controllers.WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tonyzhang.buzzshelter.Controllers.WelcomeActivity" />
+                android:value="com.example.tonyzhang.buzzshelter.com.buzzshelter.Controllers.WelcomeActivity" />
         </activity>
-        <activity android:name=".Controllers.MainActivity"></activity>
+        <activity android:name="com.buzzshelter.Controllers.MainActivity"></activity>
     </application>
 
 </manifest>
