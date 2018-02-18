@@ -8,4 +8,5 @@
     <string name="action_sign_in">Login</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
 </resources>

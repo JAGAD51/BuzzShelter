@@ -30,7 +30,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tonyzhang.buzzshelter.com.buzzshelter.Controllers.WelcomeActivity" />
         </activity>
-        <activity android:name="com.buzzshelter.Controllers.MainActivity"></activity>
+        <activity android:name="com.buzzshelter.Controllers.MainActivity" />
+        <activity
+            android:name="com.buzzshelter.Controllers.RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
