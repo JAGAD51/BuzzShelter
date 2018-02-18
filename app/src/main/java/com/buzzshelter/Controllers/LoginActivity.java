@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.buzzshelter.Model.Model;
 import com.example.tonyzhang.buzzshelter.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Button register_button = (Button) findViewById(R.id.registration_register_button);
         Button login = (Button) findViewById(R.id.go_to_login);
         Button cancel = (Button) findViewById(R.id.cancel);
         final EditText username = findViewById(R.id.username);
@@ -25,8 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().equals("user") &&
-                        password.getText().toString().equals("pass")) {
+                if(Model.getInstance().validateUser(username.getText().toString(), password.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getBaseContext(), MainActivity.class);
                             startActivity(intent);
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

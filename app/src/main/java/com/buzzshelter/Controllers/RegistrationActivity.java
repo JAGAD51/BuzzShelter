@@ -1,5 +1,6 @@
 package com.buzzshelter.Controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,8 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.buzzshelter.Model.AccountType;
+import com.buzzshelter.Model.Model;
 import com.buzzshelter.Model.User;
 import com.example.tonyzhang.buzzshelter.R;
 public class RegistrationActivity extends AppCompatActivity {
@@ -22,8 +25,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText password;
     private Spinner accountType;
     private User user;
-
-
 
 
     @Override
@@ -52,33 +53,37 @@ public class RegistrationActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.registration_password_field);
         accountType = (Spinner) findViewById(R.id.registration_accountType_spinner);
 
-        ArrayAdapter<AccountType> accountAdapter = new ArrayAdapter<AccountType>(this, android.R.layout.simple_spinner_item);
+        ArrayAdapter<AccountType> accountAdapter = new ArrayAdapter<AccountType>(this, android.R.layout.simple_spinner_item, AccountType.values());
         accountAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountType.setAdapter(accountAdapter);
 
 
         cancel_button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                });
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String stringId = id.getText().toString();
-                String stringName =  name.getText().toString();
+                String stringName = name.getText().toString();
                 String stringPassword = password.getText().toString();
-                AccountType accountTypeAccountType =  (AccountType) accountType.getSelectedItem();
+                AccountType accountTypeAccountType = (AccountType) accountType.getSelectedItem();
 
-                user = new User(stringId ,stringName, stringPassword, accountTypeAccountType);
-
+                user = new User(stringId, stringName, stringPassword, accountTypeAccountType);
+                if (!Model.getInstance().addUser(user)) {
+                    Toast.makeText(getApplicationContext(), "Failure: Either field is null OR id is taken", Toast.LENGTH_SHORT).show();
+                } else {
+                    //was successful login
+                    Toast.makeText(getApplicationContext(), "Registration SUCCESSFULL!!!!!!!!!1!!!1!!1111!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getBaseContext(), WelcomeActivity.class);
+                    startActivity(intent);
+                }
             }
         });
-
-
-
     }
-
 }

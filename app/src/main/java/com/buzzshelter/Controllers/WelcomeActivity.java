@@ -27,5 +27,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //for button to redirect to login screen
+        Button reg_button = (Button) findViewById(R.id.go_to_register);
+        reg_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 }
