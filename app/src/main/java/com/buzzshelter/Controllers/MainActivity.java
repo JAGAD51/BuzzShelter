@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 import com.example.tonyzhang.buzzshelter.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button logout = (Button) findViewById(R.id.logout);
+
+        Button shelterData = (Button) findViewById(R.id.enterShelter);
+
+
+
+        shelterData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
