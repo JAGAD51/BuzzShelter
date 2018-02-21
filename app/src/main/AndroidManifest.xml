@@ -32,6 +32,8 @@
         </activity>
         <activity android:name="com.buzzshelter.Controllers.MainActivity" />
         <activity android:name="com.buzzshelter.Controllers.ViewShelterActivity" />
+        <activity android:name="com.buzzshelter.Controllers.EnterShelterActivity" />
+        <activity android:name="com.buzzshelter.Controllers.DetailedShelterActivity" />
         <activity
             android:name="com.buzzshelter.Controllers.RegistrationActivity"
             android:label="@string/title_activity_registration"
