@@ -1,7 +1,9 @@
 package com.buzzshelter.Controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,24 +19,22 @@ public class MainActivity extends AppCompatActivity {
 
         Button logout = (Button) findViewById(R.id.logout);
 
-        Button shelterData = (Button) findViewById(R.id.enterShelter);
+        Button enterShelter = (Button) findViewById(R.id.enterShelter);
 
+        Button viewShelter = (Button) findViewById(R.id.viewShelter);
 
-
-        shelterData.setOnClickListener(new View.OnClickListener() {
+        viewShelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getBaseContext(), ViewShelterActivity.class);
+                startActivity(intent);
             }
         });
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
-
     }
 }

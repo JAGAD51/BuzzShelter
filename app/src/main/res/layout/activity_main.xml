@@ -16,17 +16,27 @@
 
     <Button
         android:id="@+id/enterShelter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="71dp"
         android:text="Enter new shelter"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="135dp" />
+        app:layout_constraintBottom_toTopOf="@+id/viewShelter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logout" />
 
     <Button
         android:id="@+id/viewShelter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="232dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginStart="128dp"
         android:text="View shelters"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="231dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

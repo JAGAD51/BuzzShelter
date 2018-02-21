@@ -33,7 +33,7 @@ public class WelcomeActivity extends AppCompatActivity {
         InputStream inputStream = getResources().openRawResource(R.raw.stats);
         CSVFile csvFile = new CSVFile(inputStream);
         List shelterList = csvFile.read();
-        for(int i = 0; i < shelterList.size(); i++) {
+        for(int i = 1; i < shelterList.size(); i++) {
             String[] data = (String[]) shelterList.get(i);
             String name = data[1];
             String capacity = data[2];

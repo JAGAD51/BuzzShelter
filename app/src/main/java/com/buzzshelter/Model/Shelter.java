@@ -24,7 +24,7 @@ public class Shelter {
         this.phoneNumber = phoneNumber;
     }
     public String toString() {
-        return name;
+        return name + " - " + restrictions;
     }
     public String getName() {
         return name;
