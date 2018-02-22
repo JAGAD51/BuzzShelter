@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.buzzshelter.Model.Model;
 import com.buzzshelter.Model.Shelter;
 import com.example.tonyzhang.buzzshelter.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by jeffr on 2/21/2018.
@@ -18,13 +22,10 @@ import com.example.tonyzhang.buzzshelter.R;
 
 public class DetailedShelterActivity extends AppCompatActivity {
 
-    private TextView text = findViewById(R.id.shelterInfo);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailedshelter);
-        Log.d("Test", "there");
         Button backButton = (Button) findViewById(R.id.back);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -35,10 +36,21 @@ public class DetailedShelterActivity extends AppCompatActivity {
             }
         });
 
-       /* Intent intent = getIntent();
+        //gets the passed-in shelter, retrieves its info, and displays it in the listview
+        Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         Shelter shelter = (Shelter) Model.getInstance().getShelterList().get(name);
-        text.setText("Name: " + shelter.getName() + "\n");
-        text.append("Capacity: " + shelter.getCapacity() + "\n");*/
+        ArrayList<String> details = new ArrayList<>();
+        details.add("Name: " + shelter.getName());
+        details.add("Capacity: " + shelter.getCapacity());
+        details.add("Restrictions: " + shelter.getRestrictions());
+        details.add("Longitude: " + shelter.getLongitude());
+        details.add("Latitude: " + shelter.getLatitude());
+        details.add("Address: " + shelter.getAddress());
+        details.add("Phone Number: " + shelter.getPhoneNumber());
+        ListView shelterDetails = (ListView) findViewById(R.id.shelterDetails);
+        ArrayAdapter<String> shelterAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, details);
+        shelterDetails.setAdapter(shelterAdapter);
     }
 }

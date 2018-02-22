@@ -47,13 +47,11 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
         shelterList.setAdapter(shelterAdapter);
         shelterList.setOnItemClickListener(this);
     }
-
+        //displays detailed info about a shelter if you click on it
         public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-            Log.i("Test", "You clicked Item: " + id + " at position:" + position);
             Intent intent = new Intent();
             intent.setClass(this, DetailedShelterActivity.class);
-            //intent.putExtra("name", list.get(position).getName());
-            Log.d("Test", "here");
+            intent.putExtra("name", list.get(position).getName());
             startActivity(intent);
     }
 }
