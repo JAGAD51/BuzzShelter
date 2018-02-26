@@ -15,13 +15,14 @@ public static Model getInstance() {return _instance; }
 
 //list of all users
 private HashMap<String, User> _userList;
+private HashMap<String, Shelter> _shelterList;
 
 //attempted a null user
 //private final User theNullUser = new User("No such user", "No such user", "No such user", AccountType.NA);
 
     private Model() {
         _userList = new HashMap<>();
-
+        _shelterList = new HashMap<>();
     }
 
 
@@ -49,5 +50,18 @@ private HashMap<String, User> _userList;
             }
         }
         return false; 
+    }
+    public boolean addShelter(Shelter shelter) {
+        if(_shelterList.containsKey(shelter)) {
+            return false;
+        }
+        if(_shelterList == null || shelter == null) {
+            return false;
+        }
+        _shelterList.put(shelter.getName(), shelter);
+        return true;
+    }
+    public HashMap getShelterList() {
+        return _shelterList;
     }
 }
