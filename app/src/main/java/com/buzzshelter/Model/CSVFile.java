@@ -1,4 +1,4 @@
-package com.buzzshelter.Controllers;
+package com.buzzshelter.Model;
 
 /**
  * Created by jeffr on 2/20/2018.

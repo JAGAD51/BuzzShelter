@@ -3,14 +3,13 @@ package com.buzzshelter.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import java.io.InputStream;
 import java.util.List;
 
-import com.buzzshelter.Controllers.LoginActivity;
 import com.buzzshelter.Model.AccountType;
+import com.buzzshelter.Model.CSVFile;
 import com.buzzshelter.Model.Model;
 import com.buzzshelter.Model.Shelter;
 import com.buzzshelter.Model.User;
