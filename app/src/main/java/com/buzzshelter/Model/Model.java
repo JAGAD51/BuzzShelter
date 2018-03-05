@@ -64,4 +64,18 @@ private HashMap<String, Shelter> _shelterList;
     public HashMap getShelterList() {
         return _shelterList;
     }
+
+    public HashMap getFilteredResults(String gender) {
+        HashMap<String, Shelter> filteredResults = new HashMap<>();
+        ArrayList<Shelter> shelters = new ArrayList<>(_shelterList.values());
+        for (Shelter shelter : shelters) {
+            String restrictions = shelter.getRestrictions();
+            if (gender.equals("Female") && restrictions.indexOf("Men") == -1
+                || gender.equals("Male") && restrictions.indexOf("Women") == -1
+                || gender.equals("Any")) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+        }
+        return filteredResults;
+    }
 }
