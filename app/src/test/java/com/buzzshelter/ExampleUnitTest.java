@@ -1,4 +1,4 @@
-package com.example.tonyzhang.buzzshelter;
+package com.buzzshelter;
 
 import org.junit.Test;
 
