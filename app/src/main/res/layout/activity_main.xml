@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tonyzhang.buzzshelter.com.buzzshelter.Controllers.MainActivity">
+    tools:context="com.buzzshelter.Controllers.MainActivity">
 
     <Button
         android:id="@+id/logout"

@@ -17,8 +17,6 @@ import com.example.tonyzhang.buzzshelter.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +53,8 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        //for button to redirect to login screen
-        Button reg_button = (Button) findViewById(R.id.go_to_register);
+        //for button to redirect to registration screen
+        Button reg_button = (Button) findViewById(R.id.registration_register_button);
         reg_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), RegistrationActivity.class);
