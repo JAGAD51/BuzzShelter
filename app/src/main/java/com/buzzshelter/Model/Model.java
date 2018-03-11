@@ -25,8 +25,6 @@ private HashMap<String, Shelter> _shelterList;
         _shelterList = new HashMap<>();
     }
 
-
-
     public boolean addUser(User user) {
         if(_userList.containsKey(user)) {
             return false;
@@ -61,18 +59,34 @@ private HashMap<String, Shelter> _shelterList;
         _shelterList.put(shelter.getName(), shelter);
         return true;
     }
-    public HashMap getShelterList() {
+
+    public HashMap<String, Shelter> getShelterList() {
         return _shelterList;
     }
+    public HashMap<String, User> getUserList() {
+        return _userList;
+    }
 
-    public HashMap getFilteredResults(String gender) {
+    public HashMap<String, Shelter> getFilteredResults(String query) {
         HashMap<String, Shelter> filteredResults = new HashMap<>();
         ArrayList<Shelter> shelters = new ArrayList<>(_shelterList.values());
         for (Shelter shelter : shelters) {
             String restrictions = shelter.getRestrictions();
-            if (gender.equals("Female") && restrictions.indexOf("Men") == -1
-                || gender.equals("Male") && restrictions.indexOf("Women") == -1
-                || gender.equals("Any")) {
+            if ((query.equals("Families with Newborns")
+                    && restrictions.toLowerCase().contains("newborns"))
+                    || (query.equals("Children")
+                    && restrictions.equals("Children"))
+                    || (query.equals("Young Adults")
+                    && restrictions.toLowerCase().contains("young adult"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+            if ((query.equals("Female") && !restrictions.contains("Men"))
+                    || (query.equals("Male") && !restrictions.contains("Women"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+            if (shelter.getName().contains(query)) {
                 filteredResults.put(shelter.getName(), shelter);
             }
         }
