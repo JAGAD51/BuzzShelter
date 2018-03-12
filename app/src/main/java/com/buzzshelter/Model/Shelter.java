@@ -12,6 +12,7 @@ public class Shelter {
     private String latitude;
     private String address;
     private String phoneNumber;
+    private int vacancy;
 
     public Shelter(String name, String capacity, String restrictions, String longitude,
                    String latitude, String address, String phoneNumber) {
@@ -22,6 +23,14 @@ public class Shelter {
         this.latitude = latitude;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.vacancy = 0;
+        if (!capacity.equals("")) {
+            String[] capacities = capacity.split(",");
+            for (int i = 0; i < capacities.length; i++) {
+                String numVacancy = capacities[i].replaceAll("\\D+","");
+                this.vacancy += Integer.parseInt(numVacancy);
+            }
+        }
     }
     public String toString() {
         return name + " - " + restrictions;
@@ -80,5 +89,13 @@ public class Shelter {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getVacancy() {
+        return this.vacancy;
+    }
+
+    public void setVacancy(int vacancy) {
+        this.vacancy = vacancy;
     }
 }

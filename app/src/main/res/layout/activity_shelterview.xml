@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:ems="20"
             android:hint="Search by Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            />
 
         <TextView
             android:layout_width="match_parent"
