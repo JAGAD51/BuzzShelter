@@ -9,6 +9,8 @@ public class User {
     private String _name;
     private String _password;
     private AccountType _accountType;
+    private int _numberBedClaimed;
+    private String _locationBedClaimed;
 
 
     public User(String id, String name, String password, AccountType accountType) {
@@ -16,6 +18,8 @@ public class User {
         _name = name;
         _password = password;
         _accountType = accountType;
+        _numberBedClaimed = 0;
+        _locationBedClaimed = null;
     }
 
     //Getters
@@ -35,19 +39,31 @@ public class User {
         return _accountType;
     }
 
+    public int getNumberBedClaimed() {
+        return _numberBedClaimed;
+    }
+
+    public String getLocationBedClaimed() {
+        return _locationBedClaimed;
+    }
+
     //Setters
     public void setId(String newId) {
         _id = newId;
     }
-
     public void setName(String newName){
         _name = newName;
     }
-    public void getPassword(String newPassword) {
+    public void setPassword(String newPassword) {
         _password = newPassword;
     }
-
-    public void getAccountType(AccountType newAccountType) {
+    public void setAccountType(AccountType newAccountType) {
         _accountType = newAccountType;
+    }
+    public void setNumberBedClaimed(int beds) {
+        _numberBedClaimed = beds;
+    }
+    public void setLocationBedClaimed(String shelterName) {
+        _locationBedClaimed = shelterName;
     }
 }
