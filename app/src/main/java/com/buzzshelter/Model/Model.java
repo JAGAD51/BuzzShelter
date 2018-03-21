@@ -9,23 +9,24 @@ import java.util.List;
  */
 
 public class Model {
-private static final Model _instance = new Model();
-public static Model getInstance() {return _instance; }
+    private static final Model _instance = new Model();
 
+    public static Model getInstance() {
+        return _instance;
+    }
 
-//list of all users
-private HashMap<String, User> _userList;
-private HashMap<String, Shelter> _shelterList;
+    //list of all users
+    private HashMap<String, User> _userList;
+    private HashMap<String, Shelter> _shelterList;
 
-//attempted a null user
-//private final User theNullUser = new User("No such user", "No such user", "No such user", AccountType.NA);
+    //current user using the system
+    private User _currentUser;
 
     private Model() {
         _userList = new HashMap<>();
         _shelterList = new HashMap<>();
+        _currentUser = null;
     }
-
-
 
     public boolean addUser(User user) {
         if(_userList.containsKey(user)) {
@@ -44,6 +45,7 @@ private HashMap<String, Shelter> _shelterList;
         }
         if(_userList.containsKey(givenId)) {
             if (password.equals(_userList.get(givenId).getPassword())) {
+                _currentUser = _userList.get(givenId);
                 return true;
             } else {
                 return false;
@@ -51,6 +53,7 @@ private HashMap<String, Shelter> _shelterList;
         }
         return false; 
     }
+
     public boolean addShelter(Shelter shelter) {
         if(_shelterList.containsKey(shelter)) {
             return false;
@@ -61,7 +64,56 @@ private HashMap<String, Shelter> _shelterList;
         _shelterList.put(shelter.getName(), shelter);
         return true;
     }
-    public HashMap getShelterList() {
+
+    public HashMap<String, Shelter> getShelterList() {
         return _shelterList;
+    }
+
+    public HashMap<String, User> getUserList() {
+        return _userList;
+    }
+
+    public HashMap<String, Shelter> getFilteredResults(String query) {
+        HashMap<String, Shelter> filteredResults = new HashMap<>();
+        ArrayList<Shelter> shelters = new ArrayList<>(_shelterList.values());
+        for (Shelter shelter : shelters) {
+            String restrictions = shelter.getRestrictions();
+            if ((query.equals("Families with Newborns")
+                    && restrictions.toLowerCase().contains("newborns"))
+                    || (query.equals("Children")
+                    && restrictions.equals("Children"))
+                    || (query.equals("Young Adults")
+                    && restrictions.toLowerCase().contains("young adult"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+            if ((query.equals("Female") && !restrictions.contains("Men"))
+                    || (query.equals("Male") && !restrictions.contains("Women"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+            if (shelter.getName().contains(query)) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+        }
+        return filteredResults;
+    }
+
+    public boolean isUserCheckedIn() {
+        return _currentUser.getLocationBedClaimed() != null;
+    }
+
+    public void checkIn(int numBeds, String shelterName) {
+        _currentUser.setNumberBedClaimed(numBeds);
+        _currentUser.setLocationBedClaimed(shelterName);
+        Shelter shelter = _shelterList.get(shelterName);
+        shelter.setVacancy(shelter.getVacancy() - numBeds);
+    }
+
+    public void checkOut() {
+        Shelter shelter = _shelterList.get(_currentUser.getLocationBedClaimed());
+        shelter.setVacancy(shelter.getVacancy() + _currentUser.getNumberBedClaimed());
+        _currentUser.setNumberBedClaimed(0);
+        _currentUser.setLocationBedClaimed(null);
     }
 }
