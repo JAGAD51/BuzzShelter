@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="32dp">
 
         <Button
             android:id="@+id/backButton"
@@ -25,8 +25,7 @@
             android:layout_height="wrap_content"
             android:ems="20"
             android:hint="Search by Name"
-            android:inputType="textPersonName"
-            />
+            android:inputType="textPersonName" />
 
         <TextView
             android:layout_width="match_parent"
@@ -51,7 +50,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="Any"/>
+                    android:text="Any" />
 
                 <RadioButton
                     android:id="@+id/radioNewborn"
@@ -102,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="Any"/>
+                    android:text="Any" />
 
                 <RadioButton
                     android:id="@+id/radioMale"
@@ -127,6 +126,12 @@
             android:layout_height="wrap_content"
             android:text="Search" />
 
+        <Button
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View on Map" />
+
         <ListView
             android:id="@+id/shelterData"
             android:layout_width="match_parent"
@@ -141,6 +146,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.885" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
