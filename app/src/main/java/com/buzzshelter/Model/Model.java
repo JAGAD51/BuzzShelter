@@ -92,7 +92,7 @@ public class Model {
                     || (query.equals("Any"))) {
                 filteredResults.put(shelter.getName(), shelter);
             }
-            if (shelter.getName().contains(query)) {
+            if (shelter.getName().toLowerCase().contains(query)) {
                 filteredResults.put(shelter.getName(), shelter);
             }
         }
