@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class ViewShelterActivity extends AppCompatActivity implements OnItemClickListener {
 
-    private ArrayList<Shelter> list = new ArrayList<>(Model.getInstance().getShelterList().values());
+    private ArrayList<Shelter> list = new ArrayList<>(Model.getInstance().getShelterList(getApplicationContext()).values());
     private RadioGroup radioGroup;
     private RadioGroup radioAge;
     private RadioButton radioButton;
@@ -73,7 +73,7 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
                 secondId = radioAge.getCheckedRadioButtonId();
                 name = search.getText().toString();
                 if (!name.isEmpty()) {
-                    list = new ArrayList<>(Model.getInstance().getFilteredResults(name).values());
+                    list = new ArrayList<>(Model.getInstance().getFilteredResults(name, getApplicationContext()).values());
                     loadShelters();
                 } else if (selectedId != -1 && secondId != -1) {
                     radioButton = findViewById(selectedId);
@@ -83,24 +83,24 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
                     age = ageButton.getText().toString();
 
                     if (gender != null) {
-                        list = new ArrayList<>(Model.getInstance().getFilteredResults(gender).values());
+                        list = new ArrayList<>(Model.getInstance().getFilteredResults(gender, getApplicationContext()).values());
                     }
                     if (age != null) {
-                        list.retainAll(Model.getInstance().getFilteredResults(age).values());
+                        list.retainAll(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
                     }
                     loadShelters();
                 } else if (selectedId != -1) {
                     radioButton = findViewById(selectedId);
                     gender = radioButton.getText().toString();
                     if (gender != null) {
-                        list = new ArrayList<>(Model.getInstance().getFilteredResults(gender).values());
+                        list = new ArrayList<>(Model.getInstance().getFilteredResults(gender, getApplicationContext()).values());
                     }
                     loadShelters();
                 } else if (secondId != -1) {
                     ageButton = findViewById(secondId);
                     age = ageButton.getText().toString();
                     if (age != null) {
-                        list = new ArrayList<>(Model.getInstance().getFilteredResults(age).values());
+                        list = new ArrayList<>(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
                         loadShelters();
                     }
                 }
