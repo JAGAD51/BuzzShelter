@@ -1,5 +1,8 @@
 package com.buzzshelter.Model;
 
+import android.os.CountDownTimer;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +21,10 @@ public class Model {
     //list of all users
     private HashMap<String, User> _userList;
     private HashMap<String, Shelter> _shelterList;
+    private int loginAttempts = 0;
+    private CountDownTimer timer;
+    private int mins;
+    private int secs;
 
     //current user using the system
     private User _currentUser;
@@ -71,6 +78,30 @@ public class Model {
 
     public HashMap<String, User> getUserList() {
         return _userList;
+    }
+
+    public int getLoginAttempts() { return loginAttempts; }
+
+    public void setLoginAttempts(int num) { loginAttempts = num; }
+
+    public String failedLogin() {
+        loginAttempts++;
+        if (loginAttempts == 3) {
+            timer = new CountDownTimer(300000, 1000) {
+                @Override
+                public void onTick(long time) {
+                    secs = (int) (time / 1000);
+                    mins = secs / 60;
+                    secs = secs % 60;
+                }
+
+                @Override
+                public void onFinish() {
+                    loginAttempts = 0;
+                }
+            }.start();
+        }
+        return "" + mins + " minutes and " + secs + " seconds.";
     }
 
     public HashMap<String, Shelter> getFilteredResults(String query) {
