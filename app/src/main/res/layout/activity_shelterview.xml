@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:ems="20"
             android:hint="Search by Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -49,7 +50,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Any" />
+                    android:checked="true"
+                    android:text="Any"/>
 
                 <RadioButton
                     android:id="@+id/radioNewborn"
@@ -100,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="Any" />
+                    android:text="Any"/>
 
                 <RadioButton
                     android:id="@+id/radioMale"
