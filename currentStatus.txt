@@ -1,0 +1,13 @@
+-trying to integrate database to replaced current array/list structure
+	-addUser
+	-validateUser
+	-addShelter
+	-getShelterList
+	-getUserList
+	-getFiltered results
+	-isUserCheckedIn
+	-checkIn
+	-checkOut
+-will need to more thoroughly test database later
+-still need to implement shelter updates
+-How, right now, when a user checks in does it automatically the user's location?

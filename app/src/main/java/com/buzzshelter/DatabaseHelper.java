@@ -12,11 +12,15 @@ import com.buzzshelter.Model.AccountType;
 import android.database.Cursor;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 /**
  * Created by user on 25/03/2018.
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+    //Keep only 1 DB active at a time
+    private static DatabaseHelper sInstance;
 
     //DB Version
     private static final int DATABASE_VERSION = 1;
@@ -77,8 +81,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             SHELTER_VACANCY + " INTEGER " +
             ")";
 
+    public static synchronized DatabaseHelper getInstance(Context context) {
 
-    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null) {
+            sInstance = new DatabaseHelper(context.getApplicationContext());
+        }
+        return sInstance;
+    }
+    private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -86,6 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqldb) {
         sqldb.execSQL(CREATE_TABLE_USERS);
         sqldb.execSQL(CREATE_TABLE_SHELTERS);
+
 
     }
 
@@ -97,6 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SHELTERS);
 
         onCreate(db);
+        db.close();
 
     }
 
@@ -104,7 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //CRUD USER
     //create an entry in the USER table
-    public long createUSER(User user, Shelter taken_Shelter) {
+    public long createUSER(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -113,11 +128,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(USER_PASSWORD, user.getPassword());
         values.put(USER_ACCOUNT_TYPE, user.getAccountType().toString());
         values.put(USER_NUMBER_BEDS_CLAIMED, user.getNumberBedClaimed());
-        values.put(KEY_SHELTER_NAME, taken_Shelter.getName());
+        values.put(KEY_SHELTER_NAME, user.getLocationBedClaimed());
 
         //Insert Row
         long user_row = db.insert(CREATE_TABLE_USERS, null, values);
-
+        db.close();
         return user_row;
 
 
@@ -133,6 +148,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(selectQuery, null);
         if(c != null) {
             c.moveToFirst();
+        } else {
+            return null;
         }
         User us = new User(c.getString(c.getColumnIndex(KEY_USER_ID)), c.getString(c.getColumnIndex(USER_NAME)),
                 c.getString(c.getColumnIndex(USER_PASSWORD)),
@@ -140,13 +157,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         us.setNumberBedClaimed(c.getInt(c.getColumnIndex(USER_NUMBER_BEDS_CLAIMED)));
         us.setLocationBedClaimed(c.getString(c.getColumnIndex(KEY_SHELTER_NAME)));
         c.close();
+        db.close();
         return us;
     }
 
-    //TODO: LIST OF USERS
+    //TODO: Hashmap OF USERS
+    public HashMap<String, User> makeUserHashMap() {
+        HashMap<String, User> users = new HashMap<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_USER;
+        Cursor c = db.rawQuery(selectQuery, null);
 
+        //looping through rows and adding to hashmap
+        if(c.moveToFirst()) {
+            do {
+                User u = new User(
+                        c.getString(c.getColumnIndex(KEY_USER_ID)),
+                        c.getString(c.getColumnIndex(USER_NAME)),
+                        c.getString(c.getColumnIndex(USER_PASSWORD)),
+                        AccountType.valueOf(c.getString(c.getColumnIndex(USER_ACCOUNT_TYPE))));
+                u.setLocationBedClaimed(c.getString(c.getColumnIndex(KEY_SHELTER_NAME)));
+                u.setNumberBedClaimed( c.getInt(c.getColumnIndex(USER_NUMBER_BEDS_CLAIMED)));
+                users.put(u.getId(), u);
 
-    //TODO: ASK TEAM ABOUT SPECIFIC QUERIES WANTED
+            } while(c.moveToNext());
+
+        }
+
+        return users;
+
+    }
+
 
     //Update User
     public int updateUSER(User user) {
@@ -162,8 +203,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //updating row
         //returns the number of rows affected
-        return db.update(TABLE_USER, values, KEY_USER_ID + " = ?",
+        int cool =  db.update(TABLE_USER, values, KEY_USER_ID + " = ?",
                 new String[] {user.getId()});
+        db.close();
+        return cool;
 
     }
 
@@ -172,6 +215,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_USER, KEY_USER_ID + " = ?",
                 new String[] {user_id});
+        db.close();
 
     }
 
@@ -194,7 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //Insert Row
         long shelter_row = db.insert(TABLE_SHELTERS, null, values);
-
+        db.close();
         return shelter_row;
     }
 
@@ -223,12 +267,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         s.setVacancy(c.getInt(c.getColumnIndex(SHELTER_VACANCY)));
 
         c.close();
-
+        db.close();
         return s;
     }
 
     //TODO: LIST OF SHELTERS
-    //TODO:
+        //+ 0r -
+    //TODO: UpdateVacancies(Shelter, delta)
+
 
 
     //updating a shelter
@@ -248,9 +294,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //updating row
         //returns the number of rows affected
-        return db.update(TABLE_SHELTERS, values, KEY_USER_ID + " = ?",
+        long cool =  db.update(TABLE_SHELTERS, values, KEY_USER_ID + " = ?",
                 new String[]{shelter.getName()});
+        db.close();
+        return cool;
     }
+
+    public HashMap<String, Shelter> makeShelterHashMap() {
+        HashMap<String, Shelter> shelters = new HashMap<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_SHELTERS;
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        //looping through rows and adding to hashmap
+        if(c.moveToFirst()) {
+            do {
+                Shelter s = new Shelter(
+                        c.getString(c.getColumnIndex(KEY_SHELTER_NAME)),
+                        c.getString(c.getColumnIndex(SHELTER_CAPACITY)),
+                        c.getString(c.getColumnIndex(SHELTER_RESTRICTIONS)),
+                        c.getString(c.getColumnIndex(SHELTER_LONGITUDE)),
+                        c.getString(c.getColumnIndex(SHELTER_LATITUDE)),
+                        c.getString(c.getColumnIndex(SHELTER_ADDRESS)),
+                        c.getString(c.getColumnIndex(SHELTER_PHONE_NUMBER))
+                );
+                s.setVacancy(c.getInt(c.getColumnIndex(SHELTER_VACANCY)));
+
+                shelters.put(s.getName(), s);
+            } while(c.moveToNext());
+
+        }
+
+        return shelters;
+
+    }
+
+
 
     //delete shelter
     public void deleteSHELTER(String shelter_name) {
@@ -258,9 +337,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.delete(TABLE_SHELTERS, KEY_SHELTER_NAME + " = ?",
                 new String[] {shelter_name});
+        db.close();
 
     }
-
 
 
     //closing the database

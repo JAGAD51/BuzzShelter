@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.buzzshelter.Model.Model;
+import com.buzzshelter.DatabaseHelper;
 import com.example.tonyzhang.buzzshelter.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Model.getInstance().validateUser(username.getText().toString(), password.getText().toString())) {
+                if(Model.getInstance().validateUser(username.getText().toString(), password.getText().toString(), getApplicationContext())) {
                     Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getBaseContext(), MainActivity.class);
                             startActivity(intent);
