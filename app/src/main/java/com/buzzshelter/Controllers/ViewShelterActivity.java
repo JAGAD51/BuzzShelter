@@ -35,6 +35,7 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
     private RadioButton ageButton;
     private Button searchButton;
     private Button backButton;
+    private Button mapViewButton;
     private String gender;
     private String age;
     private String name;
@@ -68,6 +69,8 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
         backButton = findViewById(R.id.backButton);
         //create search button and define its functionality
         searchButton = findViewById(R.id.searchBtn);
+
+        mapViewButton = findViewById(R.id.mapView);
 
         radioGroup = findViewById(R.id.radioGender);
         radioAge = findViewById(R.id.radioAge);
@@ -123,8 +126,20 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
             }
         });
 
-
-
+        mapViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                String[] listNames = new String[list.size()];
+                int i = 0;
+                for (Shelter shelter : list) {
+                    listNames[i] = shelter.getName();
+                    i++;
+                }
+                intent.putExtra("list", listNames);
+                startActivity(intent);
+            }
+        });
     }
 
         private void loadShelters() {
