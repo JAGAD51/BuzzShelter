@@ -1,0 +1,4 @@
+#Tue Mar 27 20:24:48 EDT 2018
+base.0=/Users/audreybriggs/Desktop/College/GT/cs2340/BuzzShelter/app/build/intermediates/transforms/dexMerger/debug/10
+path.0=classes.dex
+renamed.0=classes.dex
