@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"outputType":{"type":"PROCESSED_RES"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1},"path":"resources-debug.ap_","properties":{"packageId":"com.example.tonyzhang.buzzshelter","split":"","minSdkVersion":"19"}}]
+=======
+[{"outputType":{"type":"PROCESSED_RES"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"1.0","enabled":true,"outputFile":"app-debug.apk","fullName":"debug","baseName":"debug"},"path":"resources-debug.ap_","properties":{"packageId":"com.example.tonyzhang.buzzshelter","split":"","minSdkVersion":"19"}}]
+>>>>>>> 8ea5c913c611aa51494a44435471880854b5739f

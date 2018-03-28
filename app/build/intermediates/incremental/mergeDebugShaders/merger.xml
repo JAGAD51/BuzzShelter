@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="/Users/audreybriggs/Desktop/College/GT/cs2340/BuzzShelter/app/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/audreybriggs/Desktop/College/GT/cs2340/BuzzShelter/app/src/debug/shaders"/></dataSet></merger>
+=======
+<merger version="3"><dataSet config="main"><source path="C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\debug\shaders"/></dataSet></merger>
+>>>>>>> 8ea5c913c611aa51494a44435471880854b5739f

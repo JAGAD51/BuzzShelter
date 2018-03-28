@@ -1,4 +1,5 @@
 #Internal package file, do not edit.
+<<<<<<< HEAD
 #Tue Mar 27 20:24:50 EDT 2018
 2.base=/Users/audreybriggs/Desktop/College/GT/cs2340/BuzzShelter/app/build/intermediates/transforms/dexMerger/debug/13
 5.set=DEX
@@ -25,3 +26,11 @@ count=6
 1.base=/Users/audreybriggs/Desktop/College/GT/cs2340/BuzzShelter/app/build/intermediates/transforms/dexMerger/debug/12
 4.baseType=DIRECTORY
 0.set=DEX
+=======
+#Sat Feb 17 23:42:25 GMT-05:00 2018
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\user\\Documents\\Georgia Tech\\Spring 2018\\CS 2340\\git2340\\BuzzShelter\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1
+>>>>>>> 8ea5c913c611aa51494a44435471880854b5739f
