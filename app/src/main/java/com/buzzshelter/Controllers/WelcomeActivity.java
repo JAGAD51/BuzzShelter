@@ -25,10 +25,10 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
          //deletes database for each new run
-         DatabaseHelper db = DatabaseHelper.getInstance(getApplicationContext());
-         db.deleteME(getApplicationContext());
+         //DatabaseHelper db = DatabaseHelper.getInstance(getApplicationContext());
+         //db.deleteME(getApplicationContext());
         //creates a default user (for convenience's sake)
-        User user = new User("bobby", "bob", "bob", AccountType.ADMIN);
+        User user = new User("jen", "bob", "bob", AccountType.ADMIN);
         Model.getInstance().addUser(user, getApplicationContext());
         System.out.println("SON TUNG");
 

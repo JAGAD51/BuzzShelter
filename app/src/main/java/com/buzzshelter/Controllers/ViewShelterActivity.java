@@ -95,9 +95,23 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
 
                     if (gender != null) {
                         list = new ArrayList<>(Model.getInstance().getFilteredResults(gender, getApplicationContext()).values());
+                        for (Shelter s: list) {
+                            System.out.println(s);
+
+                        }
+
                     }
                     if (age != null) {
                         list.retainAll(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
+                        for (Shelter s: list) {
+                            System.out.println(s);
+
+                        }
+                    }
+
+                    for (Shelter s: list) {
+                        System.out.println(s);
+
                     }
                     loadShelters();
                 } else if (selectedId != -1) {
@@ -143,6 +157,7 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
     }
 
         private void loadShelters() {
+
             //shows a list of all the shelters in the database using their toString representation
             ListView shelterList = findViewById(R.id.shelterData);
             ArrayAdapter<Shelter> shelterAdapter =

@@ -1,11 +1,7 @@
 package com.buzzshelter.Model;
-
-<<<<<<< HEAD
 import com.buzzshelter.DatabaseHelper;
-=======
 import android.os.CountDownTimer;
 import android.util.Log;
->>>>>>> bcccfaf26aaeb9452f73d0e1c1b813b06f868832
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,6 +37,7 @@ public class Model {
 
     public boolean addUser(User user, Context context) {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
+        System.out.println("\n\n\n" + db.toString());
         if(user == null || context == null || db == null) {
             Toast.makeText(context,"null is bad", Toast.LENGTH_SHORT).show();
             return false;
@@ -60,6 +57,7 @@ public class Model {
 
     public boolean validateUser(String givenId, String password, Context context) {
         if(givenId == null || password == null || context == null) {
+            System.out.println("imput for validateuser was null");
             return false;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
@@ -127,12 +125,10 @@ public class Model {
         return map;
     }
 
-<<<<<<< HEAD
-    public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
-        if(query == null || context == null) {
-            return null;
-        }
-=======
+
+
+
+
     public int getLoginAttempts() { return loginAttempts; }
 
     public void setLoginAttempts(int num) { loginAttempts = num; }
@@ -157,33 +153,37 @@ public class Model {
         return "" + mins + " minutes and " + secs + " seconds.";
     }
 
-    public HashMap<String, Shelter> getFilteredResults(String query) {
->>>>>>> bcccfaf26aaeb9452f73d0e1c1b813b06f868832
-        HashMap<String, Shelter> filteredResults = new HashMap<>();
-        ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
-        for (Shelter shelter : shelters) {
-            String restrictions = shelter.getRestrictions();
-            System.out.println("restrictions: " + restrictions);
-            System.out.println("query is: " + query);
-            System.out.println(restrictions.toLowerCase().contains("newborns"));
-            if (
-                    (query.toLowerCase().contains("newborns") && restrictions.toLowerCase().contains("newborns"))
-                    || (query.equals("Children") && restrictions.toLowerCase().contains("children"))
-                    || (query.equals("Young Adults") && restrictions.toLowerCase().contains("young adult"))
-                    || (query.equals("Any"))) {
-                System.out.println("added to filtered results");
-                System.out.flush();
-                filteredResults.put(shelter.getName(), shelter);
-            }
-            if ((query.equals("Female") && !restrictions.contains("Men"))
-                    || (query.equals("Male") && !restrictions.contains("Women"))
-                    || (query.equals("Any"))) {
-                filteredResults.put(shelter.getName(), shelter);
-            }
-            if (shelter.getName().toLowerCase().contains(query)) {
-                filteredResults.put(shelter.getName(), shelter);
-            }
+    public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
+        if (query == null || context == null) {
+            return null;
         }
+
+            HashMap<String, Shelter> filteredResults = new HashMap<>();
+            ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
+            for (Shelter shelter : shelters) {
+                String restrictions = shelter.getRestrictions();
+                /**
+                System.out.println("restrictions: " + restrictions);
+                System.out.println("query is: " + query);
+                System.out.println(restrictions.toLowerCase().contains("newborns"));
+                 **/
+                if ((query.toLowerCase().contains("newborns") && restrictions.toLowerCase().contains("newborns"))
+                                || (query.equals("Children") && restrictions.toLowerCase().contains("children"))
+                                || (query.equals("Young Adults") && restrictions.toLowerCase().contains("young adult"))
+                                || (query.equals("Any"))) {
+                    System.out.println("added to filtered results");
+                    System.out.flush();
+                    filteredResults.put(shelter.getName(), shelter);
+                }
+                if ((query.equals("Female") && !restrictions.contains("Men"))
+                        || (query.equals("Male") && !restrictions.contains("Women"))
+                        || (query.equals("Any"))) {
+                    filteredResults.put(shelter.getName(), shelter);
+                }
+                if (shelter.getName().toLowerCase().contains(query)) {
+                    filteredResults.put(shelter.getName(), shelter);
+                }
+            }
         return filteredResults;
     }
 

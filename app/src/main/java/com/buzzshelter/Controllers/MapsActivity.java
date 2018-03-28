@@ -47,7 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         LatLng location = new LatLng(0, 0);
         for (String name : list) {
-            Shelter shelter = (Shelter) Model.getInstance().getShelterList().get(name);
+            Shelter shelter = (Shelter) Model.getInstance().getShelterList(getApplicationContext()).get(name);
             double latitude = Double.parseDouble(shelter.getLatitude());
             double longitude = Double.parseDouble(shelter.getLongitude());
             location = new LatLng(latitude, longitude);

@@ -1,60 +1,74 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\f4c67d0a5d9e69b1b8de6df0e06d47df\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0cdc271136779aa59317da3bc96eebf0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ddd3d4181a5efcf80ba7f5b1384b1722\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:17:1-32:12
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\90bfdc698b9d92f39e7b568db456c478\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\3feacd6f52470353bd0b7b79abd2e880\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\d86b87d64ac04197e26863cdc51f2b07\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:transition:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\2e8cd23c124a6555f49faf6750b69125\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.0.aar\da6742831d9941ffae43e89c9e6b392d\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\4017dcd8c29df117921a2facbe00facf\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d975bacf37829638f761c16c82fa2a9b\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\1d2a7aa013df3e2b5833244f79a34bb1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\d6160685ab0f54ece93ecea808628ddc\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\58ce4e9557ec26608cd6a0231d8b9f67\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\bdeffa2af91e90ecbe238eb94bdba582\AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-maps-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-license-12.0.0.aar\2c078cd822ff741dbae6b166b58df65d\AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.android.gms:play-services-base-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.0.aar\763b789af1a8c37be08bcb401e757b57\AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.0.aar\b2d8d3db738a89d66d84b53638c5ccb4\AndroidManifest.xml:2:1-8:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\e79024372398e7e9b0ad1dd49b31fea5\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.0.aar\fb46810a2a5a6035fef5840aeb152ae9\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
 	package
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:3:11-54
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-45:12
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.GET_ACCOUNTS
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:6:5-70
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:6:5-71
 	android:name
 		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:6:22-68
 uses-permission#android.permission.READ_PROFILE
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:7:5-70
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:7:5-71
 	android:name
 		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:7:22-68
 uses-permission#android.permission.READ_CONTACTS
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:8:5-71
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:8:5-72
 	android:name
 		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:8:22-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:15:5-79
+	android:name
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:15:22-76
 application
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:10:5-43:19
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:17:5-66:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\f4c67d0a5d9e69b1b8de6df0e06d47df\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\f4c67d0a5d9e69b1b8de6df0e06d47df\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0cdc271136779aa59317da3bc96eebf0\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0cdc271136779aa59317da3bc96eebf0\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ddd3d4181a5efcf80ba7f5b1384b1722\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ddd3d4181a5efcf80ba7f5b1384b1722\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:30:5-20
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\90bfdc698b9d92f39e7b568db456c478\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\90bfdc698b9d92f39e7b568db456c478\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\3feacd6f52470353bd0b7b79abd2e880\AndroidManifest.xml:22:5-26:19
@@ -63,6 +77,12 @@ MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\user\.gradle\c
 MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\d86b87d64ac04197e26863cdc51f2b07\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:transition:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\2e8cd23c124a6555f49faf6750b69125\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:transition:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\2e8cd23c124a6555f49faf6750b69125\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.0.aar\da6742831d9941ffae43e89c9e6b392d\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.0.aar\da6742831d9941ffae43e89c9e6b392d\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\4017dcd8c29df117921a2facbe00facf\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\4017dcd8c29df117921a2facbe00facf\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d975bacf37829638f761c16c82fa2a9b\AndroidManifest.xml:25:5-29:19
@@ -75,80 +95,100 @@ MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\user\.gradle\c
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\58ce4e9557ec26608cd6a0231d8b9f67\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\bdeffa2af91e90ecbe238eb94bdba582\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\bdeffa2af91e90ecbe238eb94bdba582\AndroidManifest.xml:25:5-29:19
+MERGED from [com.google.android.gms:play-services-maps-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-license-12.0.0.aar\2c078cd822ff741dbae6b166b58df65d\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-maps-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-license-12.0.0.aar\2c078cd822ff741dbae6b166b58df65d\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-base-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.0.aar\763b789af1a8c37be08bcb401e757b57\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-base-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.0.aar\763b789af1a8c37be08bcb401e757b57\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.0.aar\b2d8d3db738a89d66d84b53638c5ccb4\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.0.aar\b2d8d3db738a89d66d84b53638c5ccb4\AndroidManifest.xml:5:5-6:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\e79024372398e7e9b0ad1dd49b31fea5\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\e79024372398e7e9b0ad1dd49b31fea5\AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.0.aar\fb46810a2a5a6035fef5840aeb152ae9\AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.0.aar\fb46810a2a5a6035fef5840aeb152ae9\AndroidManifest.xml:5:5-6:19
 	android:supportsRtl
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:22:9-35
 	android:label
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:13:9-41
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:20:9-41
 	android:roundIcon
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:14:9-54
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:21:9-54
 	android:icon
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:19:9-43
 	android:allowBackup
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:18:9-35
 	android:theme
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:16:9-40
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:23:9-40
 activity#com.buzzshelter.Controllers.WelcomeActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:17:9-23:20
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:24:9-30:20
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:17:19-77
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:24:19-77
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:18:13-22:29
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:19:17-68
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:19:25-66
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:21:17-76
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:21:27-74
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:28:27-74
 activity#com.buzzshelter.Controllers.LoginActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:24:9-32:20
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:31:9-39:20
 	android:parentActivityName
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:27:13-85
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:34:13-85
 	android:label
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:26:13-57
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:33:13-57
 	android:theme
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:28:13-56
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:35:13-56
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:25:13-69
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:32:13-69
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:29:13-31:78
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:36:13-38:79
 	android:value
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:31:17-76
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:38:17-76
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:30:17-63
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:37:17-63
 activity#com.buzzshelter.Controllers.MainActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:33:9-76
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:40:9-77
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:33:19-74
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:40:19-74
 activity#com.buzzshelter.Controllers.ViewShelterActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:34:9-35:68
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:41:9-43:63
 	android:windowSoftInputMode
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:35:19-66
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:43:13-60
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:34:19-81
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:42:13-75
 activity#com.buzzshelter.Controllers.EnterShelterActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:36:9-84
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:44:9-85
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:36:19-82
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:44:19-82
 activity#com.buzzshelter.Controllers.DetailedShelterActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:37:9-87
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:45:9-88
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:37:19-85
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:45:19-85
 activity#com.buzzshelter.Controllers.ClaimBedActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:38:9-80
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:46:9-81
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:38:19-78
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:46:19-78
 activity#com.buzzshelter.Controllers.RegistrationActivity
-ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:39:9-42:58
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:47:9-50:59
 	android:label
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:41:13-64
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:49:13-64
 	android:theme
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:42:13-56
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:50:13-56
 	android:name
-		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:40:13-76
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:48:13-76
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:59:9-61:55
+	android:value
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:61:13-52
+	android:name
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:60:13-58
+activity#com.buzzshelter.Controllers.MapsActivity
+ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:63:9-65:68
+	android:label
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:65:13-56
+	android:name
+		ADDED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:64:13-68
 uses-sdk
 INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml
@@ -159,6 +199,8 @@ MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\user\.gradle\cach
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0cdc271136779aa59317da3bc96eebf0\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ddd3d4181a5efcf80ba7f5b1384b1722\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ddd3d4181a5efcf80ba7f5b1384b1722\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\90bfdc698b9d92f39e7b568db456c478\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\90bfdc698b9d92f39e7b568db456c478\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\3feacd6f52470353bd0b7b79abd2e880\AndroidManifest.xml:20:5-44
@@ -167,6 +209,12 @@ MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\user\.gradle\c
 MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\d86b87d64ac04197e26863cdc51f2b07\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\2e8cd23c124a6555f49faf6750b69125\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\2e8cd23c124a6555f49faf6750b69125\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.0.aar\da6742831d9941ffae43e89c9e6b392d\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.0.aar\da6742831d9941ffae43e89c9e6b392d\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\4017dcd8c29df117921a2facbe00facf\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\4017dcd8c29df117921a2facbe00facf\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d975bacf37829638f761c16c82fa2a9b\AndroidManifest.xml:21:5-23:63
@@ -221,6 +269,40 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\user\.gradle\ca
 		ADDED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\f4c67d0a5d9e69b1b8de6df0e06d47df\AndroidManifest.xml:28:13-35
 	android:name
 		ADDED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\f4c67d0a5d9e69b1b8de6df0e06d47df\AndroidManifest.xml:27:13-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:23:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:24:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-12.0.0.aar\50df1bb79673c18191df27ff63808065\AndroidManifest.xml:28:9-32
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.0.aar\92f13f4446e1c3f79f9098850d4608c8\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:12.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.0.aar\cde387d5c7aa2fc1deafd59d7a262090\AndroidManifest.xml:24:13-58
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12 reason: com.google.android.gms.license has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12 reason: com.google.android.gms.license has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\Users\user\Documents\Georgia Tech\Spring 2018\CS 2340\git2340\BuzzShelter\app\src\main\AndroidManifest.xml:2:1-68:12 reason: com.google.android.gms.license requested WRITE_EXTERNAL_STORAGE
 meta-data#android.arch.lifecycle.VERSION
 ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\e79024372398e7e9b0ad1dd49b31fea5\AndroidManifest.xml:25:9-27:47
 	android:value

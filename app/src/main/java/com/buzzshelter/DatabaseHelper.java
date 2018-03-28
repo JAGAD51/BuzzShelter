@@ -136,6 +136,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        if(user.getId() == "" || user.getId() == null) {
+            return 0;
+        }
         values.put(KEY_USER_ID, user.getId());
         values.put(USER_NAME, user.getName());
         values.put(USER_PASSWORD, user.getPassword());
@@ -151,9 +154,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Insert Row
         long user_row = db.insert(TABLE_USERS, null, values);
         db.close();
+        if(user_row > 0) {
 
-        System.out.println("NSYNC MEMBER: User " + user.getId() + " added to the db :)");
-        System.out.flush();
+            System.out.println("NSYNC MEMBER: User " + user.getId() + " added to the db :)");
+            System.out.flush();
+        }
         return user_row;
 
 

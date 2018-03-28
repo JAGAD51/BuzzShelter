@@ -68,6 +68,8 @@ public class RegistrationActivity extends AppCompatActivity {
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("register button clicked");
+                System.out.flush();
 
                 String stringId = id.getText().toString();
                 String stringName = name.getText().toString();

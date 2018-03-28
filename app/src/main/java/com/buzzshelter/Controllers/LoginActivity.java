@@ -26,29 +26,29 @@ public class LoginActivity extends AppCompatActivity {
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
-                if(Model.getInstance().validateUser(username.getText().toString(), password.getText().toString(), getApplicationContext())) {
-=======
-                if (Model.getInstance().getLoginAttempts() >= 3) {
-                    Toast.makeText(getApplicationContext(), "You are locked out for " + Model.getInstance().failedLogin(),
-                            Toast.LENGTH_SHORT).show();
-                } else if (Model.getInstance().validateUser(username.getText().toString(), password.getText().toString())) {
->>>>>>> bcccfaf26aaeb9452f73d0e1c1b813b06f868832
-                    Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
-                    Model.getInstance().setLoginAttempts(0);
-                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Model.getInstance().failedLogin();
-                    if (Model.getInstance().getLoginAttempts() < 3) {
-                        Toast.makeText(getApplicationContext(), "The username or password is not correct. You have "
-                                + (3 - Model.getInstance().getLoginAttempts()) + " attempt(s) left.",Toast.LENGTH_SHORT).show();
+                if (Model.getInstance().validateUser(username.getText().toString(), password.getText().toString(), getApplicationContext())) {
+                    if (Model.getInstance().getLoginAttempts() >= 3) {
+                        Toast.makeText(getApplicationContext(), "You are locked out for " + Model.getInstance().failedLogin(),
+                                Toast.LENGTH_SHORT).show();
+                    } else if (Model.getInstance().validateUser(username.getText().toString(), password.getText().toString(), getApplicationContext())) {
+
+                        Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+                        Model.getInstance().setLoginAttempts(0);
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
-                        Toast.makeText(getApplicationContext(), "You have been locked out for 5 minutes.", Toast.LENGTH_SHORT).show();
+                        Model.getInstance().failedLogin();
+                        if (Model.getInstance().getLoginAttempts() < 3) {
+                            Toast.makeText(getApplicationContext(), "The username or password is not correct. You have "
+                                    + (3 - Model.getInstance().getLoginAttempts()) + " attempt(s) left.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "You have been locked out for 5 minutes.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
