@@ -27,7 +27,8 @@ import java.util.ArrayList;
 
 public class ViewShelterActivity extends AppCompatActivity implements OnItemClickListener {
 
-    private ArrayList<Shelter> list = new ArrayList<>(Model.getInstance().getShelterList(getApplicationContext()).values());
+
+    private ArrayList<Shelter> list;
     private RadioGroup radioGroup;
     private RadioGroup radioAge;
     private RadioButton radioButton;
@@ -55,6 +56,13 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
 //                startActivity(intent);
 //            }
 //        });
+       list = new ArrayList<>(Model.getInstance().getShelterList(getApplicationContext()).values());
+
+        System.out.println("SHELTER LIST MADE IN ACTIVITY");
+        for (Shelter s : list) {
+            System.out.println(s);
+
+        }
         loadShelters();
 
         backButton = findViewById(R.id.backButton);

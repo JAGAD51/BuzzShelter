@@ -6,8 +6,8 @@ package com.buzzshelter.Model;
 //Enums for Account Types
 
 public enum AccountType {
-    ADMIN("Admin"),
-    USER("User");
+    ADMIN("ADMIN"),
+    USER("USER");
 
     private final String innerCode;
 

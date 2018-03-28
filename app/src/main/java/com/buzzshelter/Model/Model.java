@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
+
 /**
  * Created by user on 17/02/2018.
  */
@@ -31,10 +33,18 @@ public class Model {
     public boolean addUser(User user, Context context) {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         if(user == null || context == null || db == null) {
+            Toast.makeText(context,"null is bad", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(db.fetchSpecificUserByID(user.getId()) != null) {
+            Toast.makeText(context, "This User ID is taken.", Toast.LENGTH_SHORT).show();
+
             return false;
         }
         db.createUSER(user);
         db.closeDB();
+
+        Toast.makeText(context,"You are in the db", Toast.LENGTH_SHORT).show();
         return true;
 
     }
@@ -47,6 +57,10 @@ public class Model {
         User temp = db.fetchSpecificUserByID(givenId);
 
         if(temp != null) {
+            System.out.println("\ntemp.getPassword() (from db): " + temp.getPassword());
+            System.out.println("\npassword input: " + password);
+            System.out.flush();
+
             if (password.equals(temp.getPassword())) {
                 db.closeDB();
                 return true;
@@ -56,18 +70,20 @@ public class Model {
 
             }
         }
+        System.out.println("You're not here ;)");
         db.closeDB();
         return false; 
     }
 
     public boolean addShelter(Shelter shelter, Context context) {
         if(shelter == null || context == null) {
+            System.out.println("shelter context came in false");
             return false;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
-
         Shelter temp = db.fetchSpecificShelterByName(shelter.getName());
-        if (temp == null) {
+        if (temp != null) {
+            System.out.println("shelter already here");
             return false;
         }
 
@@ -77,11 +93,18 @@ public class Model {
 
     public HashMap<String, Shelter> getShelterList(Context context) {
         if(context == null) {
+            System.out.println("shelter context is null :(");
             return null;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         HashMap<String, Shelter> map = db.makeShelterHashMap();
         db.closeDB();
+        System.out.println("SHELTER MAP MADE :)");
+        for (String s: map.keySet()) {
+            System.out.println(s);
+        }
+        System.out.println(map.keySet().size());
+        System.out.flush();
         return map;
     }
 
@@ -103,13 +126,16 @@ public class Model {
         ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
         for (Shelter shelter : shelters) {
             String restrictions = shelter.getRestrictions();
-            if ((query.equals("Families with Newborns")
-                    && restrictions.toLowerCase().contains("newborns"))
-                    || (query.equals("Children")
-                    && restrictions.equals("Children"))
-                    || (query.equals("Young Adults")
-                    && restrictions.toLowerCase().contains("young adult"))
+            System.out.println("restrictions: " + restrictions);
+            System.out.println("query is: " + query);
+            System.out.println(restrictions.toLowerCase().contains("newborns"));
+            if (
+                    (query.toLowerCase().contains("newborns") && restrictions.toLowerCase().contains("newborns"))
+                    || (query.equals("Children") && restrictions.toLowerCase().contains("children"))
+                    || (query.equals("Young Adults") && restrictions.toLowerCase().contains("young adult"))
                     || (query.equals("Any"))) {
+                System.out.println("added to filtered results");
+                System.out.flush();
                 filteredResults.put(shelter.getName(), shelter);
             }
             if ((query.equals("Female") && !restrictions.contains("Men"))

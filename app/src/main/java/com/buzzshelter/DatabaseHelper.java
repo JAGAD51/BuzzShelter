@@ -10,12 +10,13 @@ import com.buzzshelter.Model.User;
 import com.buzzshelter.Model.Shelter;
 import com.buzzshelter.Model.AccountType;
 import android.database.Cursor;
+import android.test.RenamingDelegatingContext;
 import android.widget.Toast;
 
 import java.util.HashMap;
 
 /**
- * Created by user on 25/03/2018.
+ * Created by Grace Harper on 25/03/2018.
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -26,10 +27,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     //db name
-    private static final String DATABASE_NAME = "buzzshelterdb";
+    private static final String DATABASE_NAME = "buzzshelter.db";
 
     //table names
-    private static final String TABLE_USER = "users";
+    private static final String TABLE_USERS = "users";
     private static final String TABLE_SHELTERS = "shelters";
 
     //shared-FKs
@@ -38,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //USERS Table - column names
     private static final String KEY_USER_ID = "user_id";
     private static final String USER_NAME = "user_name";
-    private static final String USER_PASSWORD = "user password";
+    private static final String USER_PASSWORD = "user_password";
     private static final String USER_ACCOUNT_TYPE = "user_account_type";
     private static final String USER_NUMBER_BEDS_CLAIMED = "user_number_beds_claimed";
 
@@ -58,20 +59,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //TODO: check for valid entries!
     //TODO: enum checkk will be  pType TEXT CHECK( USER_ACCOUNT_TYPE IN ('Admin', 'User') ) NOT NULL DEFAULT 'User',
     //TODO: check integrity of foreign key
-    private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USER + "(" +
-            KEY_USER_ID + " TEXT PRIMARY KEY," +
+    private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USERS + "( " +
+            KEY_USER_ID + " TEXT PRIMARY KEY, " +
             USER_NAME + " TEXT, " +
             USER_PASSWORD + " TEXT, " +
             USER_ACCOUNT_TYPE + " TEXT, " +
             USER_NUMBER_BEDS_CLAIMED + " INTEGER, " +
             KEY_SHELTER_NAME + " TEXT " +
-            ")";
+            "); ";
 
     //create table shelters
     //TODO: check for valid entries!
     //TODO: enum checkk will be  pType TEXT CHECK( USER_ACCOUNT_TYPE IN ('Admin', 'User') ) NOT NULL DEFAULT 'User',
-    private static final String CREATE_TABLE_SHELTERS = "CREATE TABLE" + TABLE_SHELTERS + "(" +
-            KEY_SHELTER_NAME + "TEXT PRIMARY KEY" +
+    private static final String CREATE_TABLE_SHELTERS = "CREATE TABLE " + TABLE_SHELTERS + "(" +
+            KEY_SHELTER_NAME + " TEXT PRIMARY KEY, " +
             SHELTER_CAPACITY + " TEXT, " +
             SHELTER_RESTRICTIONS + " TEXT, " +
             SHELTER_LONGITUDE + " TEXT, " +
@@ -79,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             SHELTER_ADDRESS + " TEXT, " +
             SHELTER_PHONE_NUMBER + " TEXT, " +
             SHELTER_VACANCY + " INTEGER " +
-            ")";
+            "); ";
 
     public static synchronized DatabaseHelper getInstance(Context context) {
 
@@ -93,13 +94,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        System.out.println("\nDatabase created\n");
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqldb) {
+        System.out.println("yolo yolo yolo swag\n");
+        System.out.println(CREATE_TABLE_USERS);
         sqldb.execSQL(CREATE_TABLE_USERS);
         sqldb.execSQL(CREATE_TABLE_SHELTERS);
-
 
     }
 
@@ -107,10 +110,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //on upgrade drop old tables
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SHELTERS);
-
         onCreate(db);
+        db.close();
+
+    }
+
+    public void deleteMe() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //on upgrade drop old tables
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SHELTERS);
         db.close();
 
     }
@@ -120,19 +131,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //CRUD USER
     //create an entry in the USER table
     public long createUSER(User user) {
+        if(user == null) {
+            return 0;
+        }
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
-        values.put(KEY_USER_ID, user.getName());
+        values.put(KEY_USER_ID, user.getId());
         values.put(USER_NAME, user.getName());
         values.put(USER_PASSWORD, user.getPassword());
-        values.put(USER_ACCOUNT_TYPE, user.getAccountType().toString());
+        if(user.getAccountType() == null) {
+            return 0;
+        }
+        values.put(USER_ACCOUNT_TYPE, user.getAccountType().name());
         values.put(USER_NUMBER_BEDS_CLAIMED, user.getNumberBedClaimed());
         values.put(KEY_SHELTER_NAME, user.getLocationBedClaimed());
 
+        System.out.println("HELLO: " + values);
+
         //Insert Row
-        long user_row = db.insert(CREATE_TABLE_USERS, null, values);
+        long user_row = db.insert(TABLE_USERS, null, values);
         db.close();
+
+        System.out.println("NSYNC MEMBER: User " + user.getId() + " added to the db :)");
+        System.out.flush();
         return user_row;
 
 
@@ -143,14 +164,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public User fetchSpecificUserByID(String user_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT * FROM " + TABLE_USER + " WHERE " +
-                KEY_USER_ID + " = " + user_id;
+        String selectQuery = "SELECT * FROM " + TABLE_USERS + " WHERE " +
+                KEY_USER_ID + " = " + "\"" + user_id + "\"" + ";";
+        System.out.println(selectQuery + "\n\n");
+        System.out.flush();
         Cursor c = db.rawQuery(selectQuery, null);
-        if(c != null) {
+        if(c != null && c.moveToFirst()) {
             c.moveToFirst();
         } else {
             return null;
         }
+        AccountType.valueOf("ADMIN");
+        System.out.println(c.getString(c.getColumnIndex(USER_ACCOUNT_TYPE)));
+        System.out.println(AccountType.ADMIN);
+        System.out.flush();
         User us = new User(c.getString(c.getColumnIndex(KEY_USER_ID)), c.getString(c.getColumnIndex(USER_NAME)),
                 c.getString(c.getColumnIndex(USER_PASSWORD)),
                 AccountType.valueOf(c.getString(c.getColumnIndex(USER_ACCOUNT_TYPE))));
@@ -165,7 +192,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public HashMap<String, User> makeUserHashMap() {
         HashMap<String, User> users = new HashMap<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_USER;
+        String selectQuery = "SELECT * FROM " + TABLE_USERS;
         Cursor c = db.rawQuery(selectQuery, null);
 
         //looping through rows and adding to hashmap
@@ -183,7 +210,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } while(c.moveToNext());
 
         }
-
+        System.out.println("User hash made to order");
         return users;
 
     }
@@ -203,7 +230,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //updating row
         //returns the number of rows affected
-        int cool =  db.update(TABLE_USER, values, KEY_USER_ID + " = ?",
+        int cool =  db.update(TABLE_USERS, values, KEY_USER_ID + " = ?",
                 new String[] {user.getId()});
         db.close();
         return cool;
@@ -213,7 +240,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Delete User
     public void deleteUSER(String user_id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_USER, KEY_USER_ID + " = ?",
+        db.delete(TABLE_USERS, KEY_USER_ID + " = ?",
                 new String[] {user_id});
         db.close();
 
@@ -239,6 +266,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Insert Row
         long shelter_row = db.insert(TABLE_SHELTERS, null, values);
         db.close();
+        System.out.println("added long: " + shelter_row);
+        System.out.println("Shelter added to db from dbhelper :)");
+        System.out.flush();
         return shelter_row;
     }
 
@@ -248,12 +278,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT * FROM " + TABLE_SHELTERS + " WHERE " +
-                KEY_SHELTER_NAME + " = " + shelter_name;
+                KEY_SHELTER_NAME + " = " + "\"" + shelter_name +"\"";
 
         Cursor c = db.rawQuery(selectQuery, null);
 
-        if(c != null) {
+        if(c != null && c.moveToFirst()) {
             c.moveToFirst();
+        }
+        else {
+            return null;
         }
 
         Shelter s = new Shelter(c.getString(c.getColumnIndex(KEY_SHELTER_NAME)),
@@ -324,6 +357,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } while(c.moveToNext());
 
         }
+        System.out.println("Shelter Hash made to order:)");
 
         return shelters;
 
@@ -342,6 +376,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    //deleting
+    public void deleteME(Context context) {
+        context.deleteDatabase(DATABASE_NAME);
+    }
     //closing the database
     public void closeDB() {
         SQLiteDatabase db = this.getReadableDatabase();
