@@ -22,16 +22,17 @@ public class Model {
     }
 
     //list of all users
-    private HashMap<String, User> _userList;
-    private HashMap<String, Shelter> _shelterList;
+    //private HashMap<String, User> _userList;
+    //private HashMap<String, Shelter> _shelterList;
     private int loginAttempts = 0;
     private CountDownTimer timer;
     private int mins;
     private int secs;
-
+    User _currentUser = null;
     //current user using the system
-    private User _currentUser;
+
     private Model() {
+
 
     }
 
@@ -61,14 +62,14 @@ public class Model {
             return false;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
-        User temp = db.fetchSpecificUserByID(givenId);
+        _currentUser = db.fetchSpecificUserByID(givenId);
 
-        if(temp != null) {
-            System.out.println("\ntemp.getPassword() (from db): " + temp.getPassword());
+        if(_currentUser != null) {
+            System.out.println("\ntemp.getPassword() (from db): " + _currentUser.getPassword());
             System.out.println("\npassword input: " + password);
             System.out.flush();
 
-            if (password.equals(temp.getPassword())) {
+            if (password.equals(_currentUser.getPassword())) {
                 db.closeDB();
                 return true;
             } else {
@@ -201,7 +202,7 @@ public class Model {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         _currentUser.setNumberBedClaimed(numBeds);
         _currentUser.setLocationBedClaimed(shelterName);
-        Shelter shelter = _shelterList.get(shelterName);
+        Shelter shelter = db.fetchSpecificShelterByName(shelterName);
         shelter.setVacancy(shelter.getVacancy() - numBeds);
         db.updateSHELTER(shelter);
         db.updateUSER(_currentUser);
@@ -217,7 +218,7 @@ public class Model {
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
 
-        Shelter shelter = _shelterList.get(_currentUser.getLocationBedClaimed());
+        Shelter shelter = db.fetchSpecificShelterByName(_currentUser.getLocationBedClaimed());
         shelter.setVacancy(shelter.getVacancy() + _currentUser.getNumberBedClaimed());
         _currentUser.setNumberBedClaimed(0);
         _currentUser.setLocationBedClaimed(null);

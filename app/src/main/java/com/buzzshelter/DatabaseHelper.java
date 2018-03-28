@@ -332,7 +332,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //updating row
         //returns the number of rows affected
-        long cool =  db.update(TABLE_SHELTERS, values, KEY_USER_ID + " = ?",
+        long cool =  db.update(TABLE_SHELTERS, values, KEY_SHELTER_NAME + " = ?",
                 new String[]{shelter.getName()});
         db.close();
         return cool;
