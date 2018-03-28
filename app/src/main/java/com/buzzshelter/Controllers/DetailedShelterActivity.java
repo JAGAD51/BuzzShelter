@@ -32,7 +32,7 @@ public class DetailedShelterActivity extends AppCompatActivity {
         //gets the passed-in shelter, retrieves its info, and displays it in the listview
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        final Shelter shelter = (Shelter) Model.getInstance().getShelterList().get(name);
+        final Shelter shelter = (Shelter) Model.getInstance().getShelterList(getApplicationContext()).get(name);
         ArrayList<String> details = new ArrayList<>();
         details.add("Name: " + shelter.getName());
         details.add("Capacity: " + shelter.getCapacity());

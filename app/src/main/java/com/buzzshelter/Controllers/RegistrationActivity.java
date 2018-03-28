@@ -75,7 +75,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 AccountType accountTypeAccountType = (AccountType) accountType.getSelectedItem();
 
                 user = new User(stringId, stringName, stringPassword, accountTypeAccountType);
-                if (!Model.getInstance().addUser(user)) {
+                if (!Model.getInstance().addUser(user, getApplicationContext())) {
                     Toast.makeText(getApplicationContext(), "Failure: Either field is null OR id is taken", Toast.LENGTH_SHORT).show();
                 } else {
                     //was successful login

@@ -1,9 +1,12 @@
 package com.buzzshelter.Model;
 
+import com.buzzshelter.DatabaseHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+import android.content.Context;
+import android.content.Intent;
 /**
  * Created by user on 17/02/2018.
  */
@@ -21,61 +24,83 @@ public class Model {
 
     //current user using the system
     private User _currentUser;
-
     private Model() {
-        _userList = new HashMap<>();
-        _shelterList = new HashMap<>();
-        _currentUser = null;
+
     }
 
-    public boolean addUser(User user) {
-        if(_userList.containsKey(user)) {
+    public boolean addUser(User user, Context context) {
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+        if(user == null || context == null || db == null) {
             return false;
         }
-        if(_userList == null || user == null) {
-            return false;
-        }
-        _userList.put(user.getId(), user);
+        db.createUSER(user);
+        db.closeDB();
         return true;
+
     }
 
-    public boolean validateUser(String givenId, String password) {
-        if(givenId == null || password == null) {
+    public boolean validateUser(String givenId, String password, Context context) {
+        if(givenId == null || password == null || context == null) {
             return false;
         }
-        if(_userList.containsKey(givenId)) {
-            if (password.equals(_userList.get(givenId).getPassword())) {
-                _currentUser = _userList.get(givenId);
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+        User temp = db.fetchSpecificUserByID(givenId);
+
+        if(temp != null) {
+            if (password.equals(temp.getPassword())) {
+                db.closeDB();
                 return true;
             } else {
+                db.closeDB();
                 return false;
+
             }
         }
+        db.closeDB();
         return false; 
     }
 
-    public boolean addShelter(Shelter shelter) {
-        if(_shelterList.containsKey(shelter)) {
+    public boolean addShelter(Shelter shelter, Context context) {
+        if(shelter == null || context == null) {
             return false;
         }
-        if(_shelterList == null || shelter == null) {
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+
+        Shelter temp = db.fetchSpecificShelterByName(shelter.getName());
+        if (temp == null) {
             return false;
         }
-        _shelterList.put(shelter.getName(), shelter);
+
+        db.createSHELTER(shelter);
         return true;
     }
 
-    public HashMap<String, Shelter> getShelterList() {
-        return _shelterList;
+    public HashMap<String, Shelter> getShelterList(Context context) {
+        if(context == null) {
+            return null;
+        }
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+        HashMap<String, Shelter> map = db.makeShelterHashMap();
+        db.closeDB();
+        return map;
     }
 
-    public HashMap<String, User> getUserList() {
-        return _userList;
+    public HashMap<String, User> getUserList(Context context) {
+        if(context == null) {
+            return null;
+        }
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+        HashMap<String, User> map = db.makeUserHashMap();
+        db.closeDB();
+        return map;
     }
 
-    public HashMap<String, Shelter> getFilteredResults(String query) {
+    public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
+        if(query == null || context == null) {
+            return null;
+        }
         HashMap<String, Shelter> filteredResults = new HashMap<>();
-        ArrayList<Shelter> shelters = new ArrayList<>(_shelterList.values());
+        ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
         for (Shelter shelter : shelters) {
             String restrictions = shelter.getRestrictions();
             if ((query.equals("Families with Newborns")
@@ -99,21 +124,43 @@ public class Model {
         return filteredResults;
     }
 
-    public boolean isUserCheckedIn() {
-        return _currentUser.getLocationBedClaimed() != null;
+    public boolean isUserCheckedIn(Context context) {
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+        String location = db.fetchSpecificUserByID(_currentUser.getId()).getLocationBedClaimed();
+        db.closeDB();
+        return location != null;
     }
 
-    public void checkIn(int numBeds, String shelterName) {
+    public boolean checkIn(int numBeds, String shelterName, Context context) {
+        if(shelterName == null || context == null) {
+            return false;
+        }
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
         _currentUser.setNumberBedClaimed(numBeds);
         _currentUser.setLocationBedClaimed(shelterName);
         Shelter shelter = _shelterList.get(shelterName);
         shelter.setVacancy(shelter.getVacancy() - numBeds);
+        db.updateSHELTER(shelter);
+        db.updateUSER(_currentUser);
+        db.closeDB();
+        return false;
+
+
     }
 
-    public void checkOut() {
+    public boolean checkOut(Context context) {
+        if (context == null) {
+            return false;
+        }
+        DatabaseHelper db = DatabaseHelper.getInstance(context);
+
         Shelter shelter = _shelterList.get(_currentUser.getLocationBedClaimed());
         shelter.setVacancy(shelter.getVacancy() + _currentUser.getNumberBedClaimed());
         _currentUser.setNumberBedClaimed(0);
         _currentUser.setLocationBedClaimed(null);
+        db.updateSHELTER(shelter);
+        db.updateUSER(_currentUser);
+        db.closeDB();
+        return true;
     }
 }

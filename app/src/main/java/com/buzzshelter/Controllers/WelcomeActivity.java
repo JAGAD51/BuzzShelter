@@ -24,7 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //creates a default user (for convenience's sake)
         User user = new User("bob", "bob", "bob", AccountType.ADMIN);
-        Model.getInstance().addUser(user);
+        Model.getInstance().addUser(user, getApplicationContext());
 
         //reads in the default set of homeless shelters and adds them to the model
         InputStream inputStream = getResources().openRawResource(R.raw.stats);
@@ -40,7 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
             String address = data[6];
             String phone = data[8];
             Model.getInstance().addShelter(new Shelter(name, capacity, restrictions,
-                    longitude, latitude, address, phone));
+                    longitude, latitude, address, phone), getApplicationContext());
         }
 
         //for button to redirect to login screen
