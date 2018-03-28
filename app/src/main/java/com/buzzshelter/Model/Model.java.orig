@@ -47,7 +47,6 @@ public class Model {
         }
         if(db.fetchSpecificUserByID(user.getId()) != null) {
             Toast.makeText(context, "This User ID is taken.", Toast.LENGTH_SHORT).show();
-
             return false;
         }
         db.createUSER(user);
@@ -127,12 +126,6 @@ public class Model {
         return map;
     }
 
-<<<<<<< HEAD
-    public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
-        if(query == null || context == null) {
-            return null;
-        }
-=======
     public int getLoginAttempts() { return loginAttempts; }
 
     public void setLoginAttempts(int num) { loginAttempts = num; }
@@ -158,7 +151,6 @@ public class Model {
     }
 
     public HashMap<String, Shelter> getFilteredResults(String query) {
->>>>>>> bcccfaf26aaeb9452f73d0e1c1b813b06f868832
         HashMap<String, Shelter> filteredResults = new HashMap<>();
         ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
         for (Shelter shelter : shelters) {

@@ -93,15 +93,14 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
                     gender = radioButton.getText().toString();
                     age = ageButton.getText().toString();
 
-                    if (gender != null) {
+                    if (!gender.contains("Any")) {
                         list = new ArrayList<>(Model.getInstance().getFilteredResults(gender, getApplicationContext()).values());
                         for (Shelter s: list) {
                             System.out.println(s);
 
                         }
 
-                    }
-                    if (age != null) {
+                    } else if (age != null) {
                         list.retainAll(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
                         for (Shelter s: list) {
                             System.out.println(s);

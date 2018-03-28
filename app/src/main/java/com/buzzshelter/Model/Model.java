@@ -44,8 +44,7 @@ public class Model {
             return false;
         }
         if(db.fetchSpecificUserByID(user.getId()) != null) {
-            Toast.makeText(context, "This User ID is taken.", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(context, "This User ID is in the database.", Toast.LENGTH_SHORT).show();
             return false;
         }
         db.createUSER(user);
@@ -181,7 +180,7 @@ public class Model {
                         || (query.equals("Any"))) {
                     filteredResults.put(shelter.getName(), shelter);
                 }
-                if (shelter.getName().toLowerCase().contains(query)) {
+                if (shelter.getName().toLowerCase().contains(query.toLowerCase())) {
                     filteredResults.put(shelter.getName(), shelter);
                 }
             }
