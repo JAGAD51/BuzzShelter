@@ -57,27 +57,20 @@ public class Model {
 
     public boolean validateUser(String givenId, String password, Context context) {
         if(givenId == null || password == null || context == null) {
-            System.out.println("imput for validateuser was null");
             return false;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         _currentUser = db.fetchSpecificUserByID(givenId);
 
         if(_currentUser != null) {
-            System.out.println("\ntemp.getPassword() (from db): " + _currentUser.getPassword());
-            System.out.println("\npassword input: " + password);
-            System.out.flush();
-
             if (password.equals(_currentUser.getPassword())) {
                 db.closeDB();
                 return true;
             } else {
                 db.closeDB();
                 return false;
-
             }
         }
-        System.out.println("You're not here ;)");
         db.closeDB();
         return false; 
     }

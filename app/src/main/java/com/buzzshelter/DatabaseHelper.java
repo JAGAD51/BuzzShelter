@@ -92,6 +92,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return sInstance;
     }
+
     private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         System.out.println("\nDatabase created\n");
@@ -168,6 +169,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //there are NOT unique user instances
     public User fetchSpecificUserByID(String user_id) {
         SQLiteDatabase db = this.getReadableDatabase();
+        System.out.println(this);
 
         String selectQuery = "SELECT * FROM " + TABLE_USERS + " WHERE " +
                 KEY_USER_ID + " = " + "\"" + user_id + "\"" + ";";
@@ -396,6 +398,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //Used for testing since cannot mock singleton
+    public static void setInstance(DatabaseHelper instance) {
+        sInstance = instance;
+    }
 
 }
 
