@@ -1,5 +1,6 @@
 package com.buzzshelter.Controllers;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,14 +50,14 @@ public class ClaimBedActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    if (Model.getInstance().isUserCheckedIn()) {
+                    if (Model.getInstance().isUserCheckedIn(getApplicationContext())) {
                         Toast.makeText(getApplicationContext(), "Error: You cannot make 2 bed claims.", Toast.LENGTH_SHORT).show();
                     } else {
                         final int numBeds = Integer.parseInt(bedsInput.getText().toString());
-                        final Shelter shelter = Model.getInstance().getShelterList().get(shelterName);
+                        final Shelter shelter = Model.getInstance().getShelterList(getApplicationContext()).get(shelterName);
                         final int shelterVacancy = shelter.getVacancy();
                         if (numBeds <= shelterVacancy && numBeds > 0) {
-                            Model.getInstance().checkIn(numBeds, shelterName);
+                            Model.getInstance().checkIn(numBeds, shelterName, getApplicationContext());
                             Toast.makeText(getApplicationContext(), "Claimed Bed Successfully", Toast.LENGTH_SHORT).show();
 
                             Intent finishedIntent = new Intent();
@@ -79,9 +80,9 @@ public class ClaimBedActivity extends AppCompatActivity {
         claimClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Model.getInstance().isUserCheckedIn()) {
-                    Model.getInstance().checkOut();
-                    shelterVacancyText.setText("Vacancies: " + Model.getInstance().getShelterList().get(shelterName).getVacancy());
+                if (Model.getInstance().isUserCheckedIn(getApplicationContext())) {
+                    Model.getInstance().checkOut(getApplicationContext());
+                shelterVacancyText.setText("Vacancies: " + Model.getInstance().getShelterList(getApplicationContext()).get(shelterName).getVacancy());
                 } else {
                     Toast.makeText(getApplicationContext(), "Error: You have no bed claim to clear.", Toast.LENGTH_SHORT).show();
                 }

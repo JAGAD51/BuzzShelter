@@ -7,10 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.buzzshelter.Model.AccountType;
+import com.buzzshelter.Model.User;
+import com.buzzshelter.Model.Shelter;
 
+import com.buzzshelter.DatabaseHelper;
 import com.example.tonyzhang.buzzshelter.R;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         viewShelter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getBaseContext(), ViewShelterActivity.class);
                 startActivity(intent);
             }
@@ -45,5 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
     }
+
+
+
+
 }

@@ -1,7 +1,11 @@
 package com.buzzshelter.Model;
+
+<<<<<<< HEAD
 import com.buzzshelter.DatabaseHelper;
+=======
 import android.os.CountDownTimer;
 import android.util.Log;
+>>>>>>> bcccfaf26aaeb9452f73d0e1c1b813b06f868832
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,29 +26,27 @@ public class Model {
     }
 
     //list of all users
-    //private HashMap<String, User> _userList;
-    //private HashMap<String, Shelter> _shelterList;
+    private HashMap<String, User> _userList;
+    private HashMap<String, Shelter> _shelterList;
     private int loginAttempts = 0;
     private CountDownTimer timer;
     private int mins;
     private int secs;
-    User _currentUser = null;
+
     //current user using the system
-
+    private User _currentUser;
     private Model() {
-
 
     }
 
     public boolean addUser(User user, Context context) {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
-        System.out.println("\n\n\n" + db.toString());
         if(user == null || context == null || db == null) {
             Toast.makeText(context,"null is bad", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(db.fetchSpecificUserByID(user.getId()) != null) {
-            Toast.makeText(context, "This User ID is in the database.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "This User ID is taken.", Toast.LENGTH_SHORT).show();
             return false;
         }
         db.createUSER(user);
@@ -57,18 +59,17 @@ public class Model {
 
     public boolean validateUser(String givenId, String password, Context context) {
         if(givenId == null || password == null || context == null) {
-            System.out.println("imput for validateuser was null");
             return false;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
-        _currentUser = db.fetchSpecificUserByID(givenId);
+        User temp = db.fetchSpecificUserByID(givenId);
 
-        if(_currentUser != null) {
-            System.out.println("\ntemp.getPassword() (from db): " + _currentUser.getPassword());
+        if(temp != null) {
+            System.out.println("\ntemp.getPassword() (from db): " + temp.getPassword());
             System.out.println("\npassword input: " + password);
             System.out.flush();
 
-            if (password.equals(_currentUser.getPassword())) {
+            if (password.equals(temp.getPassword())) {
                 db.closeDB();
                 return true;
             } else {
@@ -125,10 +126,6 @@ public class Model {
         return map;
     }
 
-
-
-
-
     public int getLoginAttempts() { return loginAttempts; }
 
     public void setLoginAttempts(int num) { loginAttempts = num; }
@@ -153,37 +150,32 @@ public class Model {
         return "" + mins + " minutes and " + secs + " seconds.";
     }
 
-    public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
-        if (query == null || context == null) {
-            return null;
-        }
-
-            HashMap<String, Shelter> filteredResults = new HashMap<>();
-            ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
-            for (Shelter shelter : shelters) {
-                String restrictions = shelter.getRestrictions();
-                /**
-                System.out.println("restrictions: " + restrictions);
-                System.out.println("query is: " + query);
-                System.out.println(restrictions.toLowerCase().contains("newborns"));
-                 **/
-                if ((query.toLowerCase().contains("newborns") && restrictions.toLowerCase().contains("newborns"))
-                                || (query.equals("Children") && restrictions.toLowerCase().contains("children"))
-                                || (query.equals("Young Adults") && restrictions.toLowerCase().contains("young adult"))
-                                || (query.equals("Any"))) {
-                    System.out.println("added to filtered results");
-                    System.out.flush();
-                    filteredResults.put(shelter.getName(), shelter);
-                }
-                if ((query.equals("Female") && !restrictions.contains("Men"))
-                        || (query.equals("Male") && !restrictions.contains("Women"))
-                        || (query.equals("Any"))) {
-                    filteredResults.put(shelter.getName(), shelter);
-                }
-                if (shelter.getName().toLowerCase().contains(query.toLowerCase())) {
-                    filteredResults.put(shelter.getName(), shelter);
-                }
+    public HashMap<String, Shelter> getFilteredResults(String query) {
+        HashMap<String, Shelter> filteredResults = new HashMap<>();
+        ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
+        for (Shelter shelter : shelters) {
+            String restrictions = shelter.getRestrictions();
+            System.out.println("restrictions: " + restrictions);
+            System.out.println("query is: " + query);
+            System.out.println(restrictions.toLowerCase().contains("newborns"));
+            if (
+                    (query.toLowerCase().contains("newborns") && restrictions.toLowerCase().contains("newborns"))
+                    || (query.equals("Children") && restrictions.toLowerCase().contains("children"))
+                    || (query.equals("Young Adults") && restrictions.toLowerCase().contains("young adult"))
+                    || (query.equals("Any"))) {
+                System.out.println("added to filtered results");
+                System.out.flush();
+                filteredResults.put(shelter.getName(), shelter);
             }
+            if ((query.equals("Female") && !restrictions.contains("Men"))
+                    || (query.equals("Male") && !restrictions.contains("Women"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+            if (shelter.getName().toLowerCase().contains(query)) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+        }
         return filteredResults;
     }
 
@@ -201,7 +193,7 @@ public class Model {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         _currentUser.setNumberBedClaimed(numBeds);
         _currentUser.setLocationBedClaimed(shelterName);
-        Shelter shelter = db.fetchSpecificShelterByName(shelterName);
+        Shelter shelter = _shelterList.get(shelterName);
         shelter.setVacancy(shelter.getVacancy() - numBeds);
         db.updateSHELTER(shelter);
         db.updateUSER(_currentUser);
@@ -217,7 +209,7 @@ public class Model {
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
 
-        Shelter shelter = db.fetchSpecificShelterByName(_currentUser.getLocationBedClaimed());
+        Shelter shelter = _shelterList.get(_currentUser.getLocationBedClaimed());
         shelter.setVacancy(shelter.getVacancy() + _currentUser.getNumberBedClaimed());
         _currentUser.setNumberBedClaimed(0);
         _currentUser.setLocationBedClaimed(null);

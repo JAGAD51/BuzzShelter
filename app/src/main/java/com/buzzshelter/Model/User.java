@@ -22,6 +22,8 @@ public class User {
         _locationBedClaimed = null;
     }
 
+
+
     //Getters
     public String getId() {
         return _id;

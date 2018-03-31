@@ -52,7 +52,7 @@ public class EnterShelterActivity extends AppCompatActivity {
                 String phone = shelterPhone.getText().toString();
 
                 Model.getInstance().addShelter(new Shelter(name, capacity, restrictions,
-                        longitude, latitude, address, phone));
+                        longitude, latitude, address, phone), getApplicationContext());
 
                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(intent);

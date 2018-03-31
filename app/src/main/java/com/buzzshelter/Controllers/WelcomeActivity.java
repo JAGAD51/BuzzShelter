@@ -1,6 +1,7 @@
 package com.buzzshelter.Controllers;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import java.io.InputStream;
 import java.util.List;
 
+import com.buzzshelter.DatabaseHelper;
 import com.buzzshelter.Model.AccountType;
 import com.buzzshelter.Model.CSVFile;
 import com.buzzshelter.Model.Model;
@@ -22,9 +24,13 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+         //deletes database for each new run
+         //DatabaseHelper db = DatabaseHelper.getInstance(getApplicationContext());
+         //db.deleteME(getApplicationContext());
         //creates a default user (for convenience's sake)
-        User user = new User("bob", "bob", "bob", AccountType.ADMIN);
-        Model.getInstance().addUser(user);
+        User user = new User("jen", "bob", "bob", AccountType.ADMIN);
+        Model.getInstance().addUser(user, getApplicationContext());
+        System.out.println("SON TUNG");
 
         //reads in the default set of homeless shelters and adds them to the model
         InputStream inputStream = getResources().openRawResource(R.raw.stats);
@@ -40,7 +46,7 @@ public class WelcomeActivity extends AppCompatActivity {
             String address = data[6];
             String phone = data[8];
             Model.getInstance().addShelter(new Shelter(name, capacity, restrictions,
-                    longitude, latitude, address, phone));
+                    longitude, latitude, address, phone), getApplicationContext());
         }
 
         //for button to redirect to login screen
