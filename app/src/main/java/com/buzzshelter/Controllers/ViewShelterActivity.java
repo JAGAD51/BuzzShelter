@@ -29,6 +29,7 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
 
 
     private ArrayList<Shelter> list;
+    private ArrayList<Shelter> list2;
     private RadioGroup radioGroup;
     private RadioGroup radioAge;
     private RadioButton radioButton;
@@ -47,13 +48,8 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelterview);
+
         list = new ArrayList<>(Model.getInstance().getShelterList(getApplicationContext()).values());
-
-        System.out.println("SHELTER LIST MADE IN ACTIVITY");
-        for (Shelter s : list) {
-            System.out.println(s);
-
-        }
         loadShelters();
 
         backButton = findViewById(R.id.backButton);
@@ -72,6 +68,7 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
             public void onClick(View view) {
                 selectedId = radioGroup.getCheckedRadioButtonId();
                 secondId = radioAge.getCheckedRadioButtonId();
+
                 name = search.getText().toString();
                 if (!name.isEmpty()) {
                     list = new ArrayList<>(Model.getInstance().getFilteredResults(name, getApplicationContext()).values());
@@ -83,40 +80,14 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
                     gender = radioButton.getText().toString();
                     age = ageButton.getText().toString();
 
-                    if (!gender.contains("Any")) {
-                        list = new ArrayList<>(Model.getInstance().getFilteredResults(gender, getApplicationContext()).values());
-                        for (Shelter s: list) {
-                            System.out.println(s);
-
-                        }
-
-                    } else if (age != null) {
-                        list.retainAll(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
-                        for (Shelter s: list) {
-                            System.out.println(s);
-
-                        }
-                    }
-
-                    for (Shelter s: list) {
-                        System.out.println(s);
-
-                    }
-                    loadShelters();
-                } else if (selectedId != -1) {
-                    radioButton = findViewById(selectedId);
-                    gender = radioButton.getText().toString();
                     if (gender != null) {
                         list = new ArrayList<>(Model.getInstance().getFilteredResults(gender, getApplicationContext()).values());
+                        Log.d("Test", list.toString());
+                    }
+                    if (age != null) {
+                        list.retainAll(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
                     }
                     loadShelters();
-                } else if (secondId != -1) {
-                    ageButton = findViewById(secondId);
-                    age = ageButton.getText().toString();
-                    if (age != null) {
-                        list = new ArrayList<>(Model.getInstance().getFilteredResults(age, getApplicationContext()).values());
-                        loadShelters();
-                    }
                 }
             }
         });
@@ -145,21 +116,21 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
         });
     }
 
-        private void loadShelters() {
+    private void loadShelters() {
 
-            //shows a list of all the shelters in the database using their toString representation
-            ListView shelterList = findViewById(R.id.shelterData);
-            ArrayAdapter<Shelter> shelterAdapter =
-                    new ArrayAdapter<Shelter>(this, android.R.layout.simple_list_item_1, list);
-            shelterList.setAdapter(shelterAdapter);
-            shelterList.setOnItemClickListener(this);
-        }
+        //shows a list of all the shelters in the database using their toString representation
+        ListView shelterList = findViewById(R.id.shelterData);
+        ArrayAdapter<Shelter> shelterAdapter =
+                new ArrayAdapter<Shelter>(this, android.R.layout.simple_list_item_1, list);
+        shelterList.setAdapter(shelterAdapter);
+        shelterList.setOnItemClickListener(this);
+    }
 
-        //displays detailed info about a shelter if you click on it
-        public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-            Intent intent = new Intent();
-            intent.setClass(this, DetailedShelterActivity.class);
-            intent.putExtra("name", list.get(position).getName());
-            startActivity(intent);
-        }
+    //displays detailed info about a shelter if you click on it
+    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+        Intent intent = new Intent();
+        intent.setClass(this, DetailedShelterActivity.class);
+        intent.putExtra("name", list.get(position).getName());
+        startActivity(intent);
+    }
 }

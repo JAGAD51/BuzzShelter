@@ -98,4 +98,12 @@ public class Shelter {
     public void setVacancy(int vacancy) {
         this.vacancy = vacancy;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || !(object instanceof Shelter)) {
+            return false;
+        }
+        return this.getName().equals(((Shelter) object).getName());
+    }
 }

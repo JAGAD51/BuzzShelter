@@ -147,36 +147,28 @@ public class Model {
     }
 
     public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
-        if (query == null || context == null) {
-            return null;
-        }
-
-            HashMap<String, Shelter> filteredResults = new HashMap<>();
-            ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
-            for (Shelter shelter : shelters) {
-                String restrictions = shelter.getRestrictions();
-                /**
-                System.out.println("restrictions: " + restrictions);
-                System.out.println("query is: " + query);
-                System.out.println(restrictions.toLowerCase().contains("newborns"));
-                 **/
-                if ((query.toLowerCase().contains("newborns") && restrictions.toLowerCase().contains("newborns"))
-                                || (query.equals("Children") && restrictions.toLowerCase().contains("children"))
-                                || (query.equals("Young Adults") && restrictions.toLowerCase().contains("young adult"))
-                                || (query.equals("Any"))) {
-                    System.out.println("added to filtered results");
-                    System.out.flush();
-                    filteredResults.put(shelter.getName(), shelter);
-                }
-                if ((query.equals("Female") && !restrictions.contains("Men"))
-                        || (query.equals("Male") && !restrictions.contains("Women"))
-                        || (query.equals("Any"))) {
-                    filteredResults.put(shelter.getName(), shelter);
-                }
-                if (shelter.getName().toLowerCase().contains(query.toLowerCase())) {
-                    filteredResults.put(shelter.getName(), shelter);
-                }
+        HashMap<String, Shelter> filteredResults = new HashMap<>();
+        ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
+        for (Shelter shelter : shelters) {
+            String restrictions = shelter.getRestrictions();
+            if ((query.equals("Families with Newborns")
+                    && restrictions.toLowerCase().contains("newborns"))
+                    || (query.equals("Children")
+                    && restrictions.equals("Children"))
+                    || (query.equals("Young Adults")
+                    && restrictions.toLowerCase().contains("young adult"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
             }
+            if ((query.equals("Female") && !restrictions.contains("Men"))
+                    || (query.equals("Male") && !restrictions.contains("Women"))
+                    || (query.equals("Any"))) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+            if (shelter.getName().contains(query)) {
+                filteredResults.put(shelter.getName(), shelter);
+            }
+        }
         return filteredResults;
     }
 
