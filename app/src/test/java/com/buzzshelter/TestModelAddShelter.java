@@ -5,19 +5,19 @@ import com.buzzshelter.Model.Shelter;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.ExpectException;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
+
 public class TestModelAddShelter {
 
     private Shelter shelter;
     private Shelter shelterDupe;
     private Shelter shelter2;
+    private Shelter shelterNull;
+
     @Before
     public void setUp() {
         shelter = new Shelter("Paradise,", "50", "Male",
@@ -50,5 +50,4 @@ public class TestModelAddShelter {
         assertEquals(true, Model.getInstance().addShelter(shelter));
         assertEquals(true, Model.getInstance().addShelter(shelter2));
     }
-
 }

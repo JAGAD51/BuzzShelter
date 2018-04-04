@@ -1,5 +1,7 @@
 package com.buzzshelter.Model;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by jeffr on 2/20/2018.
  */
@@ -14,7 +16,7 @@ public class Shelter {
     private String phoneNumber;
     private int vacancy;
 
-    public Shelter(String name, String capacity, String restrictions, String longitude,
+    public Shelter(@NonNull String name, String capacity, String restrictions, String longitude,
                    String latitude, String address, String phoneNumber) {
         this.name = name;
         this.capacity = capacity;
