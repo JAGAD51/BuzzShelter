@@ -62,10 +62,10 @@ public class Model {
     }
 
     public boolean addShelter(Shelter shelter) {
-        if(_shelterList.containsKey(shelter)) {
+        if(_shelterList == null || shelter == null) {
             return false;
         }
-        if(_shelterList == null || shelter == null) {
+        if(_shelterList.containsKey(shelter.getName())) {
             return false;
         }
         _shelterList.put(shelter.getName(), shelter);
