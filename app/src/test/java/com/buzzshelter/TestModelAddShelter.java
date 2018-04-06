@@ -16,7 +16,6 @@ public class TestModelAddShelter {
     private Shelter shelter;
     private Shelter shelterDupe;
     private Shelter shelter2;
-    private Shelter shelterNull;
 
     @Before
     public void setUp() {
