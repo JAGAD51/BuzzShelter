@@ -19,7 +19,6 @@ public class User {
         _password = password;
         _accountType = accountType;
         _numberBedClaimed = 0;
-        _locationBedClaimed = null;
     }
 
 

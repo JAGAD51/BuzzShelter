@@ -34,9 +34,6 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
     private RadioGroup radioAge;
     private RadioButton radioButton;
     private RadioButton ageButton;
-    private Button searchButton;
-    private Button backButton;
-    private Button mapViewButton;
     private String gender;
     private String age;
     private String name;
@@ -52,11 +49,11 @@ public class ViewShelterActivity extends AppCompatActivity implements OnItemClic
         list = new ArrayList<>(Model.getInstance().getShelterList(getApplicationContext()).values());
         loadShelters();
 
-        backButton = findViewById(R.id.backButton);
+        Button backButton = findViewById(R.id.backButton);
         //create search button and define its functionality
-        searchButton = findViewById(R.id.searchBtn);
+        Button searchButton = findViewById(R.id.searchBtn);
 
-        mapViewButton = findViewById(R.id.mapView);
+        Button mapViewButton = findViewById(R.id.mapView);
 
         radioGroup = findViewById(R.id.radioGender);
         radioAge = findViewById(R.id.radioAge);

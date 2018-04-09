@@ -6,6 +6,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
@@ -14,7 +16,7 @@ import android.widget.Toast;
  * Created by user on 17/02/2018.
  */
 
-public class Model {
+public final class Model {
     private static final Model _instance = new Model();
 
     public static Model getInstance() {
@@ -25,7 +27,6 @@ public class Model {
     //private HashMap<String, User> _userList;
     //private HashMap<String, Shelter> _shelterList;
     private int loginAttempts = 0;
-    private CountDownTimer timer;
     private int mins;
     private int secs;
     User _currentUser = null;
@@ -40,11 +41,11 @@ public class Model {
         DatabaseHelper db = DatabaseHelper.getInstance(context);
         System.out.println("\n\n\n" + db.toString());
         if(user == null || context == null || db == null) {
-            Toast.makeText(context,"null is bad", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"null is bad", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(db.fetchSpecificUserByID(user.getId()) != null) {
-            Toast.makeText(context, "This User ID is in the database.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "This User ID is in the database.", Toast.LENGTH_SHORT).show();
             return false;
         }
         db.createUSER(user);
@@ -129,7 +130,7 @@ public class Model {
     public String failedLogin() {
         loginAttempts++;
         if (loginAttempts == 3) {
-            timer = new CountDownTimer(300000, 1000) {
+            CountDownTimer timer = new CountDownTimer(300000, 1000) {
                 @Override
                 public void onTick(long time) {
                     secs = (int) (time / 1000);
@@ -146,9 +147,9 @@ public class Model {
         return "" + mins + " minutes and " + secs + " seconds.";
     }
 
-    public HashMap<String, Shelter> getFilteredResults(String query, Context context) {
-        HashMap<String, Shelter> filteredResults = new HashMap<>();
-        ArrayList<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
+    public Map<String, Shelter> getFilteredResults(String query, Context context) {
+        Map<String, Shelter> filteredResults = new HashMap<>();
+        Iterable<Shelter> shelters = new ArrayList<>(getShelterList(context).values());
         for (Shelter shelter : shelters) {
             String restrictions = shelter.getRestrictions();
             if ((query.equals("Families with Newborns")

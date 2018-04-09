@@ -24,10 +24,11 @@ public class CSVFile {
         List resultList = new ArrayList();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         try {
-            String csvLine;
-            while ((csvLine = reader.readLine()) != null) {
+            String csvLine = reader.readLine();
+            while (csvLine != null) {
                 String[] row = csvLine.split(";");
                 resultList.add(row);
+                csvLine = reader.readLine();
             }
         }
         catch (IOException ex) {

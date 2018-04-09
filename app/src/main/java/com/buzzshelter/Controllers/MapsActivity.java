@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private String[] list;
 
     @Override
@@ -44,7 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
         LatLng location = new LatLng(0, 0);
         for (String name : list) {
             Shelter shelter = (Shelter) Model.getInstance().getShelterList(getApplicationContext()).get(name);
