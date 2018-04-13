@@ -19,7 +19,7 @@ import java.util.HashMap;
  * Created by Grace Harper on 25/03/2018.
  */
 
-public final class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
     //Keep only 1 DB active at a time
     private static DatabaseHelper sInstance;
 

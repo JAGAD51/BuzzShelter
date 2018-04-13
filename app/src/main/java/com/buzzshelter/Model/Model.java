@@ -51,7 +51,7 @@ public final class Model {
         db.createUSER(user);
         db.closeDB();
 
-        Toast.makeText(context,"You are in the db", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context,"You are in the db", Toast.LENGTH_SHORT).show();
         return true;
 
     }
