@@ -38,6 +38,7 @@ public class ModelTest {
         testUsername = "Bob";
         testPassword = "123";
         testUser = mock(User.class);
+
     }
 
     /**
@@ -82,7 +83,6 @@ public class ModelTest {
     public void testValidateUser_CorrectPassword() {
         when(db.fetchSpecificUserByID(testUsername)).thenReturn(testUser);
         when(testUser.getPassword()).thenReturn(testPassword);
-
         boolean validated = testModel.validateUser(testUsername, testPassword, context);
         assertEquals(validated, true);
     }

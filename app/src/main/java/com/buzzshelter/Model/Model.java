@@ -185,10 +185,15 @@ public final class Model {
             return false;
         }
         DatabaseHelper db = DatabaseHelper.getInstance(context);
-        _currentUser.setNumberBedClaimed(numBeds);
-        _currentUser.setLocationBedClaimed(shelterName);
         Shelter shelter = db.fetchSpecificShelterByName(shelterName);
-        shelter.setVacancy(shelter.getVacancy() - numBeds);
+        if (shelter.setVacancy(shelter.getVacancy() - numBeds)) {
+            _currentUser.setNumberBedClaimed(numBeds);
+            _currentUser.setLocationBedClaimed(shelterName);
+            db.updateSHELTER(shelter);
+            db.updateUSER(_currentUser);
+            db.closeDB();
+            return true;
+        }
         db.updateSHELTER(shelter);
         db.updateUSER(_currentUser);
         db.closeDB();

@@ -95,8 +95,13 @@ public class Shelter {
         return this.vacancy;
     }
 
-    public void setVacancy(int vacancy) {
+    public boolean setVacancy(int vacancy) {
+        if(vacancy >= 0) {
         this.vacancy = vacancy;
+        return true;}
+        else {
+            return false;
+        }
     }
 
     @Override
